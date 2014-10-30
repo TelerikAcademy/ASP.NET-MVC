@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "All";
+}
+
+<h2>All</h2>
+
+<script>
+    jQuery(function () {
+        jQuery.getJSON("AllBooks", "", function(data) {
+            jQuery(data).each(function(index, element) {
+                console.log(element);
+            })
+            }); 
+    })
+</script>

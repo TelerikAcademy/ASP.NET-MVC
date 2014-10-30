@@ -1,0 +1,44 @@
+﻿@model AjaxMVCDemos.ViewModels.BookViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="hero-unit">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+<div class="hero-unit">
+    <strong>
+        @Model.Title
+    </strong>
+    <div id="book-content">
+        @(Model.Content.Length > 100 ? Model.Content.Substring(0, 100) + "..." : Model.Content)
+    </div>
+    <div>
+        @Ajax.ActionLink("See more", "GetFullBookContent"
+                 , null, new AjaxOptions
+                 {
+                     HttpMethod = "GET",
+                     InsertionMode = InsertionMode.Replace,
+                     UpdateTargetId = "book-content",
+                     LoadingElementId = "loading",
+                     OnSuccess = "hideButton",
+                     OnFailure = "alertMessage"
+                 }, new { id = "ajax-button" })
+    </div>
+    <div id="loading" style="display: none">
+        <strong>Loading...</strong>
+    </div>
+</div>
+
+<script>
+    function hideButton(data) {
+        console.log(data);
+        $("#ajax-button").hide();
+    }
+
+    function alertMessage() {
+        alert("Something is terribly wrong!")
+    }
+</script>
