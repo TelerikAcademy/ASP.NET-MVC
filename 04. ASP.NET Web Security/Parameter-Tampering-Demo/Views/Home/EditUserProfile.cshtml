@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Edit User Profile";
+}
+
+<h1>Edit User Profile</h1>
+
+@if (ViewBag.user != null)
+{
+    <p>
+        Edit profile data for:
+        <b>@ViewBag.user.UserName</b>
+    </p>
+}
+else
+{
+    <p class="lead">Invalid username.</p>
+}

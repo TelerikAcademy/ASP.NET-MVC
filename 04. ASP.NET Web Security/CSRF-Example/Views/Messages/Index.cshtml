@@ -1,0 +1,37 @@
+﻿@model CSRF_Example.Models.Message
+
+@{
+    ViewBag.Title = "Messages";
+}
+
+<h2>Welcome, @User.Identity.Name!</h2>
+<p>The secret messages are listed below...</p>
+
+<h2>Secret Messages</h2>
+@if (ViewBag.Messages.Count > 0)
+{
+    <ul>
+        @foreach (var msg in ViewBag.Messages)
+        {
+            <li>@msg.MessageText (@msg.MessageDate)</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No messages</p>
+}
+
+<h2>Create New Message</h2>
+@using (@Html.BeginForm("CreateMessage", "Messages"))
+{
+    @Html.LabelFor(m => m.MessageText, "Message:", new { @class = "control-label" })
+    <div class="controls">
+        @Html.TextBoxFor(m => m.MessageText)
+        @Html.ValidationMessageFor(m => m.MessageText, null, new { @class = "help-inline" })
+        
+        @*@Html.AntiForgeryToken()*@
+
+    </div>
+    <input type="submit" value="Create" class="btn" />
+}
