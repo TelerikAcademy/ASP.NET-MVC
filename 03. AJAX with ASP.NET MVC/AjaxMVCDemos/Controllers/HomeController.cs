@@ -56,5 +56,10 @@ namespace AjaxMVCDemos.Controllers
             Thread.Sleep(5000);
             return this.Content(DateTime.Now.ToLongTimeString());
         }
+
+        public ActionResult JQueryAjax()
+        {
+            return this.View();
+        }
     }
 }

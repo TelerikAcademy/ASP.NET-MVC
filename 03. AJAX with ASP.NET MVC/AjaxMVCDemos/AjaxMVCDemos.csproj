@@ -152,6 +152,7 @@
     <Content Include="Views\Shared\_BookResult.cshtml" />
     <Content Include="Views\Books\All.cshtml" />
     <Content Include="Views\Home\RawAjax.cshtml" />
+    <Content Include="Views\Home\JQueryAjax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
