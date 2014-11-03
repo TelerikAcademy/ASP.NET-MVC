@@ -1,13 +1,11 @@
-﻿using AjaxMVCDemos.Data;
-using AjaxMVCDemos.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace AjaxMVCDemos.Controllers
+﻿namespace AjaxMVCDemos.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AjaxMVCDemos.Data;
+    using AjaxMVCDemos.ViewModels;
+
     public class BooksController : Controller
     {
         public ActionResult Index(int? id)
@@ -19,7 +17,7 @@ namespace AjaxMVCDemos.Controllers
                     .FirstOrDefault(x => x.Id == id)
                     .Content;
 
-                return Content(bookContent);
+                return this.Content(bookContent);
             }
 
             var data = BooksData
@@ -28,7 +26,7 @@ namespace AjaxMVCDemos.Controllers
                 .Select(BookViewModel.FromBook)
                 .ToList();
 
-            return View(data);
+            return this.View(data);
         }
 
         public ActionResult Search(string query)
@@ -40,19 +38,19 @@ namespace AjaxMVCDemos.Controllers
                 .Select(BookViewModel.FromBook)
                 .ToList();
 
-            return PartialView("_BookResult", result);
+            return this.PartialView("_BookResult", result);
         }
 
         public ActionResult All()
         {
-            return View();
+            return this.View();
         }
 
         public JsonResult AllBooks()
         {
             var books = BooksData.GetAll();
 
-            return Json(books, JsonRequestBehavior.AllowGet);
+            return this.Json(books, JsonRequestBehavior.AllowGet);
         }
-	}
+    }
 }

@@ -1,11 +1,9 @@
-﻿using AjaxMVCDemos.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace AjaxMVCDemos.Data
+﻿namespace AjaxMVCDemos.Data
 {
+    using System.Collections.Generic;
+
+    using AjaxMVCDemos.Models;
+
     public static class BooksData
     {
         public static Book Get()

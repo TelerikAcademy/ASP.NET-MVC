@@ -1,17 +1,14 @@
-﻿using AjaxMVCDemos.Data;
-using AjaxMVCDemos.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Web;
-using System.Web.Mvc;
-
-namespace AjaxMVCDemos.Controllers
+﻿namespace AjaxMVCDemos.Controllers
 {
+    using System;
+    using System.Threading;
+    using System.Web.Mvc;
+
+    using AjaxMVCDemos.Data;
+    using AjaxMVCDemos.ViewModels;
+
     public class HomeController : Controller
     {
-
         public ActionResult Index()
         {
             var book = BooksData.Get();
@@ -23,7 +20,7 @@ namespace AjaxMVCDemos.Controllers
                 Content = book.Content
             };
 
-            return View(model);
+            return this.View(model);
         }
 
         public JsonResult GetData()
@@ -34,7 +31,7 @@ namespace AjaxMVCDemos.Controllers
                     Title = "Bla 2 "
                 };
 
-            return Json(data, JsonRequestBehavior.AllowGet);
+            return this.Json(data, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetFullBookContent()
@@ -43,7 +40,7 @@ namespace AjaxMVCDemos.Controllers
 
             var content = BooksData.Get().Content;
 
-            return Content(content);
+            return this.Content(content);
         }
 
         public ActionResult RawAjax()

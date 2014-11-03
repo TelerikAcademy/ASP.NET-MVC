@@ -1,13 +1,10 @@
-﻿using AjaxMVCDemos.Models;
-using Microsoft.Ajax.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Web;
-
-namespace AjaxMVCDemos.ViewModels
+﻿namespace AjaxMVCDemos.ViewModels
 {
+    using System;
+    using System.Linq.Expressions;
+
+    using AjaxMVCDemos.Models;
+
     public class BookViewModel
     {
         public static Expression<Func<Book, BookViewModel>> FromBook
