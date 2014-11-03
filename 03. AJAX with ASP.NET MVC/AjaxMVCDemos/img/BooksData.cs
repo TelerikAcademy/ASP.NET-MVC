@@ -8,7 +8,7 @@ namespace AjaxMVCDemos.Data
 {
     public static class BooksData
     {
-        public static Book GetBook()
+        public static Book Get()
         {
             return new Book
             {
@@ -20,7 +20,7 @@ namespace AjaxMVCDemos.Data
             };
         }
 
-        public static List<Book> GetAllBooks()
+        public static List<Book> GetAll()
         {
             return new List<Book>
             {
@@ -63,8 +63,7 @@ namespace AjaxMVCDemos.Data
                         Content = "Twilight",
                         Sales = 500.0m,
                         Taxes = 68.0m
-                    },
-
+                    }
             };
         }
     }

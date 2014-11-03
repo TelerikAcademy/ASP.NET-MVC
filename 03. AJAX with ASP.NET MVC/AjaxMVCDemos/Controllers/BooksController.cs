@@ -15,7 +15,7 @@ namespace AjaxMVCDemos.Controllers
             if (id != null && Request.IsAjaxRequest())
             {
                 var bookContent = BooksData
-                    .GetAllBooks()
+                    .GetAll()
                     .FirstOrDefault(x => x.Id == id)
                     .Content;
 
@@ -23,7 +23,7 @@ namespace AjaxMVCDemos.Controllers
             }
 
             var data = BooksData
-                .GetAllBooks()
+                .GetAll()
                 .AsQueryable()
                 .Select(BookViewModel.FromBook)
                 .ToList();
@@ -34,7 +34,7 @@ namespace AjaxMVCDemos.Controllers
         public ActionResult Search(string query)
         {
             var result = BooksData
-                .GetAllBooks()
+                .GetAll()
                 .AsQueryable()
                 .Where(book => book.Title.ToLower().Contains(query.ToLower()))
                 .Select(BookViewModel.FromBook)
@@ -50,7 +50,7 @@ namespace AjaxMVCDemos.Controllers
 
         public JsonResult AllBooks()
         {
-            var books = BooksData.GetAllBooks();
+            var books = BooksData.GetAll();
 
             return Json(books, JsonRequestBehavior.AllowGet);
         }

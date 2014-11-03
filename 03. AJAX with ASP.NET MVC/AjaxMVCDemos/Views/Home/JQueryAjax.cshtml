@@ -7,6 +7,7 @@
 <button onclick="getServerTime()">Get server time</button>
 <script>
     function getServerTime() {
+        $("#timeDisplay").html("Loading...");
         $("#timeDisplay").load("/Home/ServerTime");
     }
 </script>

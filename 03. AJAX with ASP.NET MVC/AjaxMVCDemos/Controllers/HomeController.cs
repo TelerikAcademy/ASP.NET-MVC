@@ -14,7 +14,7 @@ namespace AjaxMVCDemos.Controllers
 
         public ActionResult Index()
         {
-            var book = BooksData.GetBook();
+            var book = BooksData.Get();
 
             var model = new BookViewModel
             {
@@ -41,7 +41,7 @@ namespace AjaxMVCDemos.Controllers
         {
             System.Threading.Thread.Sleep(2000);
 
-            var content = BooksData.GetBook().Content;
+            var content = BooksData.Get().Content;
 
             return Content(content);
         }
@@ -53,7 +53,7 @@ namespace AjaxMVCDemos.Controllers
 
         public ActionResult ServerTime()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(4000);
             return this.Content(DateTime.Now.ToLongTimeString());
         }
 
