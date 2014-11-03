@@ -3,6 +3,7 @@ using AjaxMVCDemos.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -43,20 +44,17 @@ namespace AjaxMVCDemos.Controllers
             var content = BooksData.GetBook().Content;
 
             return Content(content);
-        } 
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult RawAjax()
         {
-            ViewBag.Message = "Your contact page.";
+            return this.View();
+        }
 
-            return View();
+        public ActionResult ServerTime()
+        {
+            Thread.Sleep(5000);
+            return this.Content(DateTime.Now.ToLongTimeString());
         }
     }
 }

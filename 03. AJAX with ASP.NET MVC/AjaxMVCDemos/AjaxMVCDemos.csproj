@@ -147,12 +147,11 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Shared\_BookResult.cshtml" />
     <Content Include="Views\Books\All.cshtml" />
+    <Content Include="Views\Home\RawAjax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

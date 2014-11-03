@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "RawAjax";
+}
+
+<h2>RawAjax</h2>
+<div id="timeDisplay"></div>
+<button onclick="getServerTime()">Get server time</button>
+<script>
+    function getServerTime() {
+        var timeDiv = document.getElementById("timeDisplay");
+        timeDiv.innerHTML = "Loading...";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/Home/ServerTime", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == "200") {
+                    var timeDiv = document.getElementById("timeDisplay");
+                    timeDiv.innerHTML = xhr.responseText;
+                }
+            }
+        }
+        xhr.send();
+    }
+</script>
