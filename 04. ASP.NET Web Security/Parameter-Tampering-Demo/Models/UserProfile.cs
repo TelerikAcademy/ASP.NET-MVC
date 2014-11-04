@@ -1,13 +1,8 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
-
 namespace Parameter_Tampering_Demo.Models
 {
-    public class ApplicationUser : User
-    {
-        public UserProfile Profile { get; set; }
-    }
+    using System.ComponentModel.DataAnnotations;
+
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public class UserProfile
     {
@@ -22,10 +17,5 @@ namespace Parameter_Tampering_Demo.Models
         public decimal Credit { get; set; }
 
         public virtual User User { get; set; }
-    }
-
-    public class ApplicationDbContext : IdentityDbContextWithCustomUser<ApplicationUser>
-    {
-        public DbSet<UserProfile> UserProfiles { get; set; }
     }
 }

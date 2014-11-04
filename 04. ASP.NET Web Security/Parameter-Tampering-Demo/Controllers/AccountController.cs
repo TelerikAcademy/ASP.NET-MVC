@@ -1,50 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using Parameter_Tampering_Demo.Models;
-
-namespace Parameter_Tampering_Demo.Controllers
+﻿namespace Parameter_Tampering_Demo.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin.Security;
+
+    using Parameter_Tampering_Demo.Models;
+
     [Authorize]
     public class AccountController : Controller
     {
-        public AccountController() 
+        public AccountController()
         {
-            IdentityManager = new AuthenticationIdentityManager(
-                new IdentityStore(new ApplicationDbContext()));
+            this.IdentityManager = new AuthenticationIdentityManager(new IdentityStore(new ApplicationDbContext()));
         }
 
         public AccountController(AuthenticationIdentityManager manager)
         {
-            IdentityManager = manager;
+            this.IdentityManager = manager;
         }
 
         public AuthenticationIdentityManager IdentityManager { get; private set; }
 
-        private Microsoft.Owin.Security.IAuthenticationManager AuthenticationManager {
-            get {
+        private Microsoft.Owin.Security.IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return this.View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -54,31 +52,34 @@ namespace Parameter_Tampering_Demo.Controllers
             if (ModelState.IsValid)
             {
                 // Validate the password
-                IdentityResult result = await IdentityManager.Authentication.CheckPasswordAndSignInAsync(
-                    AuthenticationManager, model.UserName, model.Password, model.RememberMe);
+                IdentityResult result =
+                    await
+                    this.IdentityManager.Authentication.CheckPasswordAndSignInAsync(
+                       this.AuthenticationManager,
+                        model.UserName,
+                        model.Password,
+                        model.RememberMe);
                 if (result.Success)
                 {
-                    return RedirectToLocal(returnUrl);
+                    return this.RedirectToLocal(returnUrl);
                 }
                 else
                 {
-                    AddErrors(result);
+                    this.AddErrors(result);
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 
-        //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return this.View();
         }
 
-        //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -90,55 +91,58 @@ namespace Parameter_Tampering_Demo.Controllers
                 // Create a local login before signing in the user
                 var user = new ApplicationUser();
                 user.UserName = model.UserName;
-                var result = await IdentityManager.Users.CreateLocalUserAsync(user, model.Password);
+                var result = await this.IdentityManager.Users.CreateLocalUserAsync(user, model.Password);
                 if (result.Success)
                 {
-                    await IdentityManager.Authentication.SignInAsync(
-                        AuthenticationManager, user.Id, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    await
+                        this.IdentityManager.Authentication.SignInAsync(this.AuthenticationManager, user.Id, isPersistent: false);
+                    return this.RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    AddErrors(result);
+                    this.AddErrors(result);
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 
-        //
         // GET: /Account/Manage
         public async Task<ActionResult> Manage(string message)
         {
-            ViewBag.StatusMessage = message ?? "";
-            ViewBag.HasLocalPassword = await IdentityManager.Logins.HasLocalLoginAsync(User.Identity.GetUserId());
+            ViewBag.StatusMessage = message ?? string.Empty;
+            ViewBag.HasLocalPassword = await this.IdentityManager.Logins.HasLocalLoginAsync(User.Identity.GetUserId());
             ViewBag.ReturnUrl = Url.Action("Manage");
-            return View();
+            return this.View();
         }
 
-        //
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Manage(ManageUserViewModel model)
         {
             string userId = User.Identity.GetUserId();
-            bool hasLocalLogin = await IdentityManager.Logins.HasLocalLoginAsync(userId);
+            bool hasLocalLogin = await this.IdentityManager.Logins.HasLocalLoginAsync(userId);
             ViewBag.HasLocalPassword = hasLocalLogin;
             ViewBag.ReturnUrl = Url.Action("Manage");
             if (hasLocalLogin)
-            {               
+            {
                 if (ModelState.IsValid)
                 {
-                    IdentityResult result = await IdentityManager.Passwords.ChangePasswordAsync(User.Identity.GetUserName(), model.OldPassword, model.NewPassword);
+                    IdentityResult result =
+                        await
+                        this.IdentityManager.Passwords.ChangePasswordAsync(
+                            User.Identity.GetUserName(),
+                            model.OldPassword,
+                            model.NewPassword);
                     if (result.Success)
                     {
-                        return RedirectToAction("Manage", new { Message = "Your password has been changed." });
+                        return this.RedirectToAction("Manage", new { Message = "Your password has been changed." });
                     }
                     else
                     {
-                        AddErrors(result);
+                        this.AddErrors(result);
                     }
                 }
             }
@@ -154,55 +158,67 @@ namespace Parameter_Tampering_Demo.Controllers
                 if (ModelState.IsValid)
                 {
                     // Create the local login info and link it to the user
-                    IdentityResult result = await IdentityManager.Logins.AddLocalLoginAsync(userId, User.Identity.GetUserName(), model.NewPassword);
+                    IdentityResult result =
+                        await
+                        this.IdentityManager.Logins.AddLocalLoginAsync(
+                            userId,
+                            User.Identity.GetUserName(),
+                            model.NewPassword);
                     if (result.Success)
                     {
-                        return RedirectToAction("Manage", new { Message = "Your password has been set." });
+                        return this.RedirectToAction("Manage", new { Message = "Your password has been set." });
                     }
                     else
                     {
-                        AddErrors(result);
+                        this.AddErrors(result);
                     }
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 
-        //
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            this.AuthenticationManager.SignOut();
+            return this.RedirectToAction("Index", "Home");
         }
 
         [ChildActionOnly]
         public ActionResult RemoveAccountList()
         {
-            return Task.Run(async () =>
-            {
-                var linkedAccounts = new List<IUserLogin>(await IdentityManager.Logins.GetLoginsAsync(User.Identity.GetUserId()));
-                ViewBag.ShowRemoveButton = linkedAccounts.Count > 1;
-                return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
-            }).Result;
+            return Task.Run(
+                async () =>
+                    {
+                        var linkedAccounts =
+                            new List<IUserLogin>(await IdentityManager.Logins.GetLoginsAsync(User.Identity.GetUserId()));
+                        ViewBag.ShowRemoveButton = linkedAccounts.Count > 1;
+                        return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
+                    }).Result;
         }
 
-        protected override void Dispose(bool disposing) {
-            if (disposing && IdentityManager != null) {
-                IdentityManager.Dispose();
-                IdentityManager = null;
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && this.IdentityManager != null)
+            {
+                this.IdentityManager.Dispose();
+                this.IdentityManager = null;
             }
+
             base.Dispose(disposing);
         }
 
         #region Helpers
-        private void AddErrors(IdentityResult result) {
-            foreach (var error in result.Errors) {
-                ModelState.AddModelError("", error);
+
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error);
             }
         }
 
@@ -210,11 +226,11 @@ namespace Parameter_Tampering_Demo.Controllers
         {
             if (Url.IsLocalUrl(returnUrl))
             {
-                return Redirect(returnUrl);
+                return this.Redirect(returnUrl);
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return this.RedirectToAction("Index", "Home");
             }
         }
 
@@ -222,18 +238,23 @@ namespace Parameter_Tampering_Demo.Controllers
         {
             public ChallengeResult(string provider, string redirectUrl)
             {
-                LoginProvider = provider;
-                RedirectUrl = redirectUrl;
+                this.LoginProvider = provider;
+                this.RedirectUrl = redirectUrl;
             }
 
             public string LoginProvider { get; set; }
+
             public string RedirectUrl { get; set; }
 
             public override void ExecuteResult(ControllerContext context)
             {
-                context.HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties() { RedirectUrl = RedirectUrl }, LoginProvider);
+                context.HttpContext.GetOwinContext()
+                    .Authentication.Challenge(
+                        new AuthenticationProperties() { RedirectUrl = this.RedirectUrl },
+                        this.LoginProvider);
             }
         }
+
         #endregion
     }
 }

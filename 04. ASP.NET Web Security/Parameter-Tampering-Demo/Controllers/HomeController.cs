@@ -1,32 +1,30 @@
-﻿using Parameter_Tampering_Demo.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace Parameter_Tampering_Demo.Controllers
+﻿namespace Parameter_Tampering_Demo.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using Parameter_Tampering_Demo.Models;
+
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            if (! User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated)
             {
-                return View();
+                return this.View();
             }
             else
             {
-                return RedirectToAction("EditUserProfile/" + Server.UrlEncode(User.Identity.Name));
+                return this.RedirectToAction("EditUserProfile/" + Server.UrlEncode(User.Identity.Name));
             }
         }
 
         public ActionResult EditUserProfile(string id)
         {
-            ApplicationDbContext dbContext = new ApplicationDbContext();
-            var user = dbContext.Users.Include("Profile").Where(u => u.UserName == id).FirstOrDefault();
+            var context = new ApplicationDbContext();
+            var user = context.Users.Include("Profile").FirstOrDefault(u => u.UserName == id);
             ViewBag.user = user;
-            return View();
+            return this.View();
         }
     }
 }
