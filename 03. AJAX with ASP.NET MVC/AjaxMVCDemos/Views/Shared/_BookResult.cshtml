@@ -7,7 +7,8 @@
             @Model[i].Title
         </strong>
     </div>
-    @Ajax.ActionLink("See content", "Index", new { id = Model[i].Id }, new AjaxOptions
+    @Ajax.ActionLink("See content", "ContentById", "Books", new { id = Model[i].Id },
+        new AjaxOptions
             {
                 InsertionMode = InsertionMode.Replace,
                 UpdateTargetId = "book-content"

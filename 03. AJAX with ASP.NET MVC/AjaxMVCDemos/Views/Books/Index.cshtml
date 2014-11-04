@@ -6,11 +6,13 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Ajax.BeginForm("Search", new AjaxOptions
-{
-    UpdateTargetId = "results",
-    InsertionMode = InsertionMode.Replace
-}))
+@using (Ajax.BeginForm("Search",
+    new AjaxOptions
+    {
+        UpdateTargetId = "results",
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "POST"
+    }))
 {
     <input type="text" name="query" />
     <input type="submit" />
