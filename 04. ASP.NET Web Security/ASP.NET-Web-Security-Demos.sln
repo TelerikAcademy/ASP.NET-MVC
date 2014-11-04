@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20827.3
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. CSRF-Example", "CSRF-Example\3. CSRF-Example.csproj", "{F1BE1972-E9FC-442A-94C9-572DECBCADAD}"
 EndProject
@@ -10,6 +10,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. XSS-Example", "XSS-Example\2. XSS-Example.csproj", "{ECC75027-9275-4B57-B423-A5939680071D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4. Parameter-Tampering-Demo", "Parameter-Tampering-Demo\4. Parameter-Tampering-Demo.csproj", "{0F4575D3-83FC-49B0-9659-8890073F8F86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. CSRF Attack Scripts", "3. CSRF Attack Scripts", "{740467FE-90FC-46A2-8022-975E920B6DFE}"
+	ProjectSection(SolutionItems) = preProject
+		CSRF-Attack-Scripts\1.jpg = CSRF-Attack-Scripts\1.jpg
+		CSRF-Attack-Scripts\2.jpg = CSRF-Attack-Scripts\2.jpg
+		CSRF-Attack-Scripts\3.jpg = CSRF-Attack-Scripts\3.jpg
+		CSRF-Attack-Scripts\Hack-Messages-System-CSRF.html = CSRF-Attack-Scripts\Hack-Messages-System-CSRF.html
+		CSRF-Attack-Scripts\Welcome.html = CSRF-Attack-Scripts\Welcome.html
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
