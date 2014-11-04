@@ -73,7 +73,9 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MessageModels.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="MessagesDbInitialize.cs" />
+    <Compile Include="MessagesDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
