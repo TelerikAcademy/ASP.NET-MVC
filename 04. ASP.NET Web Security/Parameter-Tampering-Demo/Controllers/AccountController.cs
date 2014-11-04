@@ -91,6 +91,7 @@
                 // Create a local login before signing in the user
                 var user = new ApplicationUser();
                 user.UserName = model.UserName;
+                user.Profile = new UserProfile();
                 var result = await this.IdentityManager.Users.CreateLocalUserAsync(user, model.Password);
                 if (result.Success)
                 {

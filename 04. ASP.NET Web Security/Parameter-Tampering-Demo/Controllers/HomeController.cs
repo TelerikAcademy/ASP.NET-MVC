@@ -26,5 +26,14 @@
             ViewBag.user = user;
             return this.View();
         }
+
+        public ActionResult DoEditUserProfile(string id, UserProfile profile)
+        {
+            var context = new ApplicationDbContext();
+            var user = context.Users.Include("Profile").FirstOrDefault(u => u.UserName == id);
+            user.Profile = profile;
+            context.SaveChanges();
+            return this.RedirectToAction("Index");
+        }
     }
 }
