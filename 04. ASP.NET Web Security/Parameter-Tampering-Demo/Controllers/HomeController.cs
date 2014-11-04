@@ -31,6 +31,7 @@
         {
             var context = new ApplicationDbContext();
             var user = context.Users.Include("Profile").FirstOrDefault(u => u.UserName == id);
+            profile.UserProfileId = user.Profile.UserProfileId;
             user.Profile = profile;
             context.SaveChanges();
             return this.RedirectToAction("Index");

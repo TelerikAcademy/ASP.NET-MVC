@@ -16,8 +16,9 @@
     </p>
     
     <form action="/Home/DoEditUserProfile/@ViewBag.user.UserName">
-        First name: <input name="FirstName" /><br />
-        Last name: <input name="LastName" /><br />
+        First name: <input name="FirstName" value="@ViewBag.user.Profile.FirstName" /><br />
+        Last name: <input name="LastName" value="@ViewBag.user.Profile.LastName" /><br />
+        <input name="Credit" type="hidden" value="@ViewBag.user.Profile.Credit" />
         <input type="submit" value="Send" />
     </form>
 }
