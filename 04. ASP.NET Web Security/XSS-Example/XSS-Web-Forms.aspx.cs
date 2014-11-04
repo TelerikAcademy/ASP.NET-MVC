@@ -1,6 +1,6 @@
 using System;
 
-public partial class XSSWebForms : System.Web.UI.Page 
+public partial class XssWebForms : System.Web.UI.Page 
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -8,15 +8,15 @@ public partial class XSSWebForms : System.Web.UI.Page
 
     protected void ButtonJustShowText_Click(object sender, EventArgs e)
     {
-        string enteredText = TextBoxSampleText.Text;
-        LabelEnteredText.Text = enteredText;
-        LiteralEnteredText.Text = enteredText;
+        var enteredText = this.TextBoxSampleText.Text;
+        this.LabelEnteredText.Text = enteredText;
+        this.LiteralEnteredText.Text = enteredText;
     }
 
     protected void ButtonShowHtmlEncoded_Click(object sender, EventArgs e)
     {
-        string enteredText = TextBoxSampleText.Text;
-        LabelEnteredText.Text = Server.HtmlEncode(enteredText);
-        LiteralEnteredText.Text = Server.HtmlEncode(enteredText);
+        var enteredText = this.TextBoxSampleText.Text;
+        this.LabelEnteredText.Text = Server.HtmlEncode(enteredText);
+        this.LiteralEnteredText.Text = Server.HtmlEncode(enteredText);
     }
 }

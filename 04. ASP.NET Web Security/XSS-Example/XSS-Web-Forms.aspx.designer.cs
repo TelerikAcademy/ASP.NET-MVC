@@ -9,7 +9,7 @@
 
 
 
-public partial class XSSWebForms {
+public partial class XssWebForms {
     
     /// <summary>
     /// FormMain control.
