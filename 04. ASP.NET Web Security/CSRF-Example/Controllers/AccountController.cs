@@ -17,12 +17,12 @@
     {
         public AccountController()
         {
-            IdentityManager = new AuthenticationIdentityManager(new IdentityStore(new ApplicationDbContext()));
+            this.IdentityManager = new AuthenticationIdentityManager(new IdentityStore(new ApplicationDbContext()));
         }
 
         public AccountController(AuthenticationIdentityManager manager)
         {
-            IdentityManager = manager;
+            this.IdentityManager = manager;
         }
 
         public AuthenticationIdentityManager IdentityManager { get; private set; }
@@ -40,7 +40,7 @@
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return this.View();
         }
 
         // POST: /Account/Login
@@ -54,30 +54,30 @@
                 // Validate the password
                 IdentityResult result =
                     await
-                    IdentityManager.Authentication.CheckPasswordAndSignInAsync(
-                        AuthenticationManager,
+                    this.IdentityManager.Authentication.CheckPasswordAndSignInAsync(
+                        this.AuthenticationManager,
                         model.UserName,
                         model.Password,
                         model.RememberMe);
                 if (result.Success)
                 {
-                    return RedirectToLocal(returnUrl);
+                    return this.RedirectToLocal(returnUrl);
                 }
                 else
                 {
-                    AddErrors(result);
+                    this.AddErrors(result);
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return this.View();
         }
 
         // POST: /Account/Register
@@ -90,30 +90,30 @@
             {
                 // Create a local login before signing in the user
                 var user = new User(model.UserName);
-                var result = await IdentityManager.Users.CreateLocalUserAsync(user, model.Password);
+                var result = await this.IdentityManager.Users.CreateLocalUserAsync(user, model.Password);
                 if (result.Success)
                 {
                     await
-                        IdentityManager.Authentication.SignInAsync(AuthenticationManager, user.Id, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                        this.IdentityManager.Authentication.SignInAsync(this.AuthenticationManager, user.Id, isPersistent: false);
+                    return this.RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    AddErrors(result);
+                    this.AddErrors(result);
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 
         // GET: /Account/Manage
         public async Task<ActionResult> Manage(string message)
         {
-            ViewBag.StatusMessage = message ?? "";
-            ViewBag.HasLocalPassword = await IdentityManager.Logins.HasLocalLoginAsync(User.Identity.GetUserId());
+            ViewBag.StatusMessage = message ?? string.Empty;
+            ViewBag.HasLocalPassword = await this.IdentityManager.Logins.HasLocalLoginAsync(User.Identity.GetUserId());
             ViewBag.ReturnUrl = Url.Action("Manage");
-            return View();
+            return this.View();
         }
 
         // POST: /Account/Manage
@@ -122,7 +122,7 @@
         public async Task<ActionResult> Manage(ManageUserViewModel model)
         {
             string userId = User.Identity.GetUserId();
-            bool hasLocalLogin = await IdentityManager.Logins.HasLocalLoginAsync(userId);
+            bool hasLocalLogin = await this.IdentityManager.Logins.HasLocalLoginAsync(userId);
             ViewBag.HasLocalPassword = hasLocalLogin;
             ViewBag.ReturnUrl = Url.Action("Manage");
             if (hasLocalLogin)
@@ -131,17 +131,17 @@
                 {
                     IdentityResult result =
                         await
-                        IdentityManager.Passwords.ChangePasswordAsync(
+                        this.IdentityManager.Passwords.ChangePasswordAsync(
                             User.Identity.GetUserName(),
                             model.OldPassword,
                             model.NewPassword);
                     if (result.Success)
                     {
-                        return RedirectToAction("Manage", new { Message = "Your password has been changed." });
+                        return this.RedirectToAction("Manage", new { Message = "Your password has been changed." });
                     }
                     else
                     {
-                        AddErrors(result);
+                        this.AddErrors(result);
                     }
                 }
             }
@@ -159,23 +159,23 @@
                     // Create the local login info and link it to the user
                     IdentityResult result =
                         await
-                        IdentityManager.Logins.AddLocalLoginAsync(
+                        this.IdentityManager.Logins.AddLocalLoginAsync(
                             userId,
                             User.Identity.GetUserName(),
                             model.NewPassword);
                     if (result.Success)
                     {
-                        return RedirectToAction("Manage", new { Message = "Your password has been set." });
+                        return this.RedirectToAction("Manage", new { Message = "Your password has been set." });
                     }
                     else
                     {
-                        AddErrors(result);
+                        this.AddErrors(result);
                     }
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 
         // POST: /Account/LogOff
@@ -183,16 +183,16 @@
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            this.AuthenticationManager.SignOut();
+            return this.RedirectToAction("Index", "Home");
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && IdentityManager != null)
+            if (disposing && this.IdentityManager != null)
             {
-                IdentityManager.Dispose();
-                IdentityManager = null;
+                this.IdentityManager.Dispose();
+                this.IdentityManager = null;
             }
 
             base.Dispose(disposing);
@@ -204,7 +204,7 @@
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", error);
+                ModelState.AddModelError(string.Empty, error);
             }
         }
 
@@ -212,11 +212,11 @@
         {
             if (Url.IsLocalUrl(returnUrl))
             {
-                return Redirect(returnUrl);
+                return this.Redirect(returnUrl);
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return this.RedirectToAction("Index", "Home");
             }
         }
 
@@ -224,8 +224,8 @@
         {
             public ChallengeResult(string provider, string redirectUrl)
             {
-                LoginProvider = provider;
-                RedirectUrl = redirectUrl;
+                this.LoginProvider = provider;
+                this.RedirectUrl = redirectUrl;
             }
 
             public string LoginProvider { get; set; }
@@ -236,8 +236,8 @@
             {
                 context.HttpContext.GetOwinContext()
                     .Authentication.Challenge(
-                        new AuthenticationProperties() { RedirectUrl = RedirectUrl },
-                        LoginProvider);
+                        new AuthenticationProperties() { RedirectUrl = this.RedirectUrl },
+                        this.LoginProvider);
             }
         }
 
