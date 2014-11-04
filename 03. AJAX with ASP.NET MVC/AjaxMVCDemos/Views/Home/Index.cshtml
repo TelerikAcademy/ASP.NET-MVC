@@ -8,35 +8,3 @@
     <p class="lead">AJAX is a technique for asynchronously (in the background) loading of dynamic content and data from the server side.</p>
     <p><a href="http://en.wikipedia.org/wiki/Ajax_(programming)" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 </div>
-
-<div class="hero-unit">
-    <div id="book-content">
-        @(Model.Content.Length > 100 ? Model.Content.Substring(0, 100) + "..." : Model.Content)
-    </div>
-    <div>
-        @Ajax.ActionLink("See more", "GetFullBookContent"
-                 , null, new AjaxOptions
-                 {
-                     HttpMethod = "GET",
-                     InsertionMode = InsertionMode.Replace,
-                     UpdateTargetId = "book-content",
-                     LoadingElementId = "loading",
-                     OnSuccess = "hideButton",
-                     OnFailure = "alertMessage"
-                 }, new { id = "ajax-button" })
-    </div>
-    <div id="loading" style="display: none">
-        <strong>Loading...</strong>
-    </div>
-</div>
-
-<script>
-    function hideButton(data) {
-        console.log(data);
-        $("#ajax-button").hide();
-    }
-
-    function alertMessage() {
-        alert("Something is terribly wrong!")
-    }
-</script>
