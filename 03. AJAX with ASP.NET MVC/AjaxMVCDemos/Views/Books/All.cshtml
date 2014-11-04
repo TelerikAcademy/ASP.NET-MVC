@@ -3,12 +3,14 @@
 }
 
 <h2>All</h2>
-
+<ol id="books"></ol>
 <script>
     jQuery(function () {
         jQuery.getJSON("AllBooks", "", function(data) {
             jQuery(data).each(function (index, element) {
-                console.log(element);
+                var newBookElement = $("<li class='book' style='display: none'>" + element.Title + "</li>");
+                $("#books").append(newBookElement);
+                newBookElement.show(1500);
             });
         }); 
     })
