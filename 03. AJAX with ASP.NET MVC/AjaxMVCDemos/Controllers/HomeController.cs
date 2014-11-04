@@ -50,7 +50,7 @@
 
         public ActionResult ServerTime()
         {
-            Thread.Sleep(4000);
+            Thread.Sleep(2000);
             return this.Content(DateTime.Now.ToLongTimeString());
         }
 
@@ -60,6 +60,11 @@
         }
 
         public ActionResult UnobtrusiveAjax()
+        {
+            return this.View();
+        }
+
+        public ActionResult AjaxActionLink()
         {
             return this.View();
         }

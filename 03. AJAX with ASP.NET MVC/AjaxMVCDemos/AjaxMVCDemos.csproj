@@ -162,6 +162,7 @@
     <Content Include="Views\Home\JQueryAjax.cshtml" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <Content Include="Views\Home\UnobtrusiveAjax.cshtml" />
+    <Content Include="Views\Home\AjaxActionLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

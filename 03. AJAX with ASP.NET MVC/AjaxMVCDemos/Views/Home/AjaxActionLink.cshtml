@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Ajax.ActionLink()";
+}
+
+<h2>@ViewBag.Title</h2>
+<div id="timeDisplay"></div>
+<div id="timeDisplayLoading" style="display: none">Loading...</div>
+@Ajax.ActionLink("Get server time", "ServerTime", null,
+    new AjaxOptions
+    {
+        UpdateTargetId = "timeDisplay",
+        LoadingElementId = "timeDisplayLoading",
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "OnAjaxRequestBegin",
+        OnFailure = "OnAjaxRequestFailure",
+        OnSuccess = "OnAjaxRequestSuccess",
+        OnComplete = "OnAjaxRequestComplete",
+        // AllowCache = true,
+        // Confirm = "Are you sure you want to update the time?"
+    }, new { @class = "ajax-link" })
+
+<script type="text/javascript">
+    function OnAjaxRequestBegin() {
+        console.log("This is the OnBegin Callback");
+    }
+    function OnAjaxRequestSuccess(data) {
+        console.log("This is the OnSuccessCallback: " + data);
+    }
+    function OnAjaxRequestFailure(request, error) {
+        console.log("This is the OnFailure Callback:" + error);
+    }
+    function OnAjaxRequestComplete(request, status) {
+        console.log("This is the OnComplete Callback: " + status);
+    }
+</script>
