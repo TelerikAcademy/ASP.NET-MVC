@@ -1,10 +1,10 @@
 ﻿@{
-    ViewBag.Title = "JQueryAjax";
+    ViewBag.Title = "JQuery AJAX";
 }
 
-<h2>jQuery Ajax</h2>
+<h2>@ViewBag.Title</h2>
 <div id="timeDisplay"></div>
-<button onclick="getServerTime()">Get server time</button>
+<a onclick="getServerTime()" href="#">Get server time</a>
 <script>
     function getServerTime() {
         $("#timeDisplay").html("Loading...");

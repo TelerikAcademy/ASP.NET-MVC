@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Unobtrusive AJAX";
+}
+
+<h2>@ViewBag.Title</h2>
+<div id="timeDisplay"></div>
+<a data-ajax="true"
+        data-ajax-method="GET"
+        data-ajax-mode="replace"
+        data-ajax-update="#timeDisplay"
+        href="/Home/ServerTime">
+    Get server time
+</a>

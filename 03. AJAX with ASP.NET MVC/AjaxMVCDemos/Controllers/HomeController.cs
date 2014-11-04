@@ -58,5 +58,10 @@
         {
             return this.View();
         }
+
+        public ActionResult UnobtrusiveAjax()
+        {
+            return this.View();
+        }
     }
 }

@@ -1,10 +1,10 @@
 ﻿@{
-    ViewBag.Title = "RawAjax";
+    ViewBag.Title = "Raw AJAX";
 }
 
-<h2>Raw Ajax</h2>
+<h2>@ViewBag.Title</h2>
 <div id="timeDisplay"></div>
-<button onclick="getServerTime()">Get server time</button>
+<a onclick="getServerTime()" href="#">Get server time</a>
 <script>
     function getServerTime() {
         var timeDiv = document.getElementById("timeDisplay");
