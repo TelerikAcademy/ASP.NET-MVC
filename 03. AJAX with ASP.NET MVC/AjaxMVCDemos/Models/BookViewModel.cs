@@ -1,9 +1,7 @@
-﻿namespace AjaxMVCDemos.ViewModels
+﻿namespace AjaxMVCDemos.Models
 {
     using System;
     using System.Linq.Expressions;
-
-    using AjaxMVCDemos.Models;
 
     public class BookViewModel
     {

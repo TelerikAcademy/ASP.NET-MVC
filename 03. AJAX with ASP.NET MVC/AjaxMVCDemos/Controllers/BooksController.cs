@@ -3,8 +3,7 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using AjaxMVCDemos.Data;
-    using AjaxMVCDemos.ViewModels;
+    using AjaxMVCDemos.Models;
 
     public class BooksController : Controller
     {

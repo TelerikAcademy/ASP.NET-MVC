@@ -1,4 +1,4 @@
-﻿@model List<AjaxMVCDemos.ViewModels.BookViewModel>
+﻿@model List<AjaxMVCDemos.Models.BookViewModel>
 
 @{
     ViewBag.Title = "Book Details";
@@ -16,7 +16,6 @@
     <input type="submit" />
 }
 
-    <div id="results">
-        @Html.Partial("_BookResult", Model)
-    </div>
-
+<div id="results">
+    @Html.Partial("_BookResult", Model)
+</div>
