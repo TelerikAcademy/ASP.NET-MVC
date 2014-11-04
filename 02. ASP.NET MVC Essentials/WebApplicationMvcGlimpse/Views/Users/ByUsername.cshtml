@@ -1,0 +1,12 @@
+﻿@using WebApplicationMvcGlimpse.Controllers
+@model Params
+@{
+    ViewBag.Title = "ByUsername";
+    System.Diagnostics.Debug.WriteLine("View...");
+    System.Diagnostics.Trace.TraceInformation("View...");
+}
+
+<h2>ByUsername</h2>
+@Html.Raw(Model.StringValue)
+
+@Html.Action("Index", "Home")
