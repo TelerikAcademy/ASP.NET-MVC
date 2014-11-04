@@ -40,6 +40,7 @@
             <li>30% <i>(matches all messages containing '30')</i></li> 
             <li>' <i>(crashes)</i></li>
             <li>'; INSERT INTO Messages(MessageText, MessageDate) VALUES ('Hacked!!!', '1.1.1980') -- <i>(injects a neq message)</i></li>
+            <li>'; DELETE FROM Messages -- <i>Hope you have a backup</i></li>
         </ul>
     </form>
 </body>

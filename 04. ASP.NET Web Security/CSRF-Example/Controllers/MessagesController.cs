@@ -22,11 +22,10 @@
             if (ModelState.IsValid)
             {
                 msg.MessageDate = DateTime.Now;
-                using (var context = new ApplicationDbContext())
-                {
-                    context.Messages.Add(msg);
-                    context.SaveChanges();
-                }
+                var context = new ApplicationDbContext();
+                
+                context.Messages.Add(msg);
+                context.SaveChanges();
 
                 return this.RedirectToAction("Index");
             }
