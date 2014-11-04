@@ -1,0 +1,32 @@
+﻿@using WebApplicationMvcGlimpse.Models
+@model IEnumerable<WebApplicationMvcGlimpse.Models.Product>
+@{
+    ViewBag.Title = "List";
+}
+
+@Image.Create("img.jpg", "Image missing")
+@Image.Empty()
+
+
+@{
+    Html.RenderPartial("_Form", Model);
+}
+
+<h2>List</h2>
+@if (Model.Any())
+{
+    foreach (var product in Model)
+    {
+        <div>@product.Name</div>
+    }
+}
+else
+{
+    @:No products found!
+}
+
+
+@*
+Server side comment
+*@
+<!-- Client side comment -->
