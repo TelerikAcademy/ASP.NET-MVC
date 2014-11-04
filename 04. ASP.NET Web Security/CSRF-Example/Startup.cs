@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(CSRF_Example.Startup))]
+
 namespace CSRF_Example
 {
     public partial class Startup 

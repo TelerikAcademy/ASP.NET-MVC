@@ -1,28 +1,22 @@
-﻿using CSRF_Example.Models;
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Web.Mvc;
-
-namespace CSRF_Example.Controllers
+﻿namespace CSRF_Example.Controllers
 {
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using CSRF_Example.Models;
+
     [Authorize]
     [ValidateInput(false)]
     public class MessagesController : Controller
     {
         public ActionResult Index()
         {
-            LoadMessages();
-            return View();
+            this.LoadMessages();
+            return this.View();
         }
 
-        private void LoadMessages()
-        {
-            var context = new ApplicationDbContext();
-            this.ViewBag.Messages = context.Messages.ToList();
-        }
-
-        //[ValidateAntiForgeryToken]
+        // [ValidateAntiForgeryToken]
         public ActionResult CreateMessage(Message msg)
         {
             if (ModelState.IsValid)
@@ -33,11 +27,18 @@ namespace CSRF_Example.Controllers
                     context.Messages.Add(msg);
                     context.SaveChanges();
                 }
-                return RedirectToAction("Index");
+
+                return this.RedirectToAction("Index");
             }
 
-            LoadMessages();
-            return View("Index", msg);
+            this.LoadMessages();
+            return this.View("Index", msg);
+        }
+
+        private void LoadMessages()
+        {
+            var context = new ApplicationDbContext();
+            this.ViewBag.Messages = context.Messages.ToList();
         }
     }
 }

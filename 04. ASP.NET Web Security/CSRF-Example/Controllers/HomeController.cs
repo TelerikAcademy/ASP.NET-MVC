@@ -1,13 +1,12 @@
-﻿using System;
-using System.Web.Mvc;
-
-namespace CSRF_Example.Controllers
+﻿namespace CSRF_Example.Controllers
 {
+    using System.Web.Mvc;
+
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
     }
 }

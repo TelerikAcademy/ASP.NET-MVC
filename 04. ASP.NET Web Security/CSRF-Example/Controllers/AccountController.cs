@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using CSRF_Example.Models;
-
-namespace CSRF_Example.Controllers
+﻿namespace CSRF_Example.Controllers
 {
+    using System.Threading.Tasks;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using CSRF_Example.Models;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin.Security;
+
     [Authorize]
     [ValidateInput(false)]
     public class AccountController : Controller
     {
-        public AccountController() 
+        public AccountController()
         {
             IdentityManager = new AuthenticationIdentityManager(new IdentityStore(new ApplicationDbContext()));
         }
@@ -29,13 +27,14 @@ namespace CSRF_Example.Controllers
 
         public AuthenticationIdentityManager IdentityManager { get; private set; }
 
-        private Microsoft.Owin.Security.IAuthenticationManager AuthenticationManager {
-            get {
+        private Microsoft.Owin.Security.IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
                 return HttpContext.GetOwinContext().Authentication;
             }
         }
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -44,7 +43,6 @@ namespace CSRF_Example.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -54,7 +52,13 @@ namespace CSRF_Example.Controllers
             if (ModelState.IsValid)
             {
                 // Validate the password
-                IdentityResult result = await IdentityManager.Authentication.CheckPasswordAndSignInAsync(AuthenticationManager, model.UserName, model.Password, model.RememberMe);
+                IdentityResult result =
+                    await
+                    IdentityManager.Authentication.CheckPasswordAndSignInAsync(
+                        AuthenticationManager,
+                        model.UserName,
+                        model.Password,
+                        model.RememberMe);
                 if (result.Success)
                 {
                     return RedirectToLocal(returnUrl);
@@ -69,7 +73,6 @@ namespace CSRF_Example.Controllers
             return View(model);
         }
 
-        //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -77,7 +80,6 @@ namespace CSRF_Example.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -91,7 +93,8 @@ namespace CSRF_Example.Controllers
                 var result = await IdentityManager.Users.CreateLocalUserAsync(user, model.Password);
                 if (result.Success)
                 {
-                    await IdentityManager.Authentication.SignInAsync(AuthenticationManager, user.Id, isPersistent: false);
+                    await
+                        IdentityManager.Authentication.SignInAsync(AuthenticationManager, user.Id, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -104,7 +107,6 @@ namespace CSRF_Example.Controllers
             return View(model);
         }
 
-        //
         // GET: /Account/Manage
         public async Task<ActionResult> Manage(string message)
         {
@@ -114,7 +116,6 @@ namespace CSRF_Example.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -125,10 +126,15 @@ namespace CSRF_Example.Controllers
             ViewBag.HasLocalPassword = hasLocalLogin;
             ViewBag.ReturnUrl = Url.Action("Manage");
             if (hasLocalLogin)
-            {               
+            {
                 if (ModelState.IsValid)
                 {
-                    IdentityResult result = await IdentityManager.Passwords.ChangePasswordAsync(User.Identity.GetUserName(), model.OldPassword, model.NewPassword);
+                    IdentityResult result =
+                        await
+                        IdentityManager.Passwords.ChangePasswordAsync(
+                            User.Identity.GetUserName(),
+                            model.OldPassword,
+                            model.NewPassword);
                     if (result.Success)
                     {
                         return RedirectToAction("Manage", new { Message = "Your password has been changed." });
@@ -151,7 +157,12 @@ namespace CSRF_Example.Controllers
                 if (ModelState.IsValid)
                 {
                     // Create the local login info and link it to the user
-                    IdentityResult result = await IdentityManager.Logins.AddLocalLoginAsync(userId, User.Identity.GetUserName(), model.NewPassword);
+                    IdentityResult result =
+                        await
+                        IdentityManager.Logins.AddLocalLoginAsync(
+                            userId,
+                            User.Identity.GetUserName(),
+                            model.NewPassword);
                     if (result.Success)
                     {
                         return RedirectToAction("Manage", new { Message = "Your password has been set." });
@@ -167,7 +178,6 @@ namespace CSRF_Example.Controllers
             return View(model);
         }
 
-        //
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -177,17 +187,23 @@ namespace CSRF_Example.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        protected override void Dispose(bool disposing) {
-            if (disposing && IdentityManager != null) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && IdentityManager != null)
+            {
                 IdentityManager.Dispose();
                 IdentityManager = null;
             }
+
             base.Dispose(disposing);
         }
 
         #region Helpers
-        private void AddErrors(IdentityResult result) {
-            foreach (var error in result.Errors) {
+
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
                 ModelState.AddModelError("", error);
             }
         }
@@ -213,13 +229,18 @@ namespace CSRF_Example.Controllers
             }
 
             public string LoginProvider { get; set; }
+
             public string RedirectUrl { get; set; }
 
             public override void ExecuteResult(ControllerContext context)
             {
-                context.HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties() { RedirectUrl = RedirectUrl }, LoginProvider);
+                context.HttpContext.GetOwinContext()
+                    .Authentication.Challenge(
+                        new AuthenticationProperties() { RedirectUrl = RedirectUrl },
+                        LoginProvider);
             }
         }
+
         #endregion
     }
 }

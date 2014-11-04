@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-
-namespace CSRF_Example.Models
+﻿namespace CSRF_Example.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
     public class Message
     {
         public int MessageId { get; set; }
