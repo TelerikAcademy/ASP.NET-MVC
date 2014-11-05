@@ -9,9 +9,9 @@
     </p>
 }
 
-<p>
+<h2>
     Bind parameter
-</p>
+</h2>
 
 @using (Html.BeginForm("Parameter", "ModelBinding", FormMethod.Post))
 {
@@ -34,15 +34,25 @@
     </div>
 }
 
-<p>
+<h2>
     Bind object
-</p>
+</h2>
 
 @Html.Partial("_ObjectBinding")
 
-<p>
+<h2>
     Bind nested object
-</p>
+</h2>
 
 
 @Html.Partial("_NestedObject")
+
+<h2>
+    Collection of primitive types
+</h2>
+
+@Html.Partial("_CollectionOfPrimitiveTypes")
+
+<h2>
+    Collection of files
+</h2>

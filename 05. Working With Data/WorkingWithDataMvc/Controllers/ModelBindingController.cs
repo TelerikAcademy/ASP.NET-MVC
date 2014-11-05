@@ -1,5 +1,6 @@
 ﻿namespace WorkingWithDataMvc.Controllers
 {
+    using System.Collections.Generic;
     using System.Web.Mvc;
     using WorkingWithDataMvc.Models;
 
@@ -29,6 +30,13 @@
         public ActionResult NestedObject(PersonWithAddressViewModel person)
         {
             return this.SetTempDataAndRedirectToAction(string.Format("{0} {1} {2}", person.Name, person.Address.City, person.Address.Country));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CollectionOfPrimitiveTypes(IEnumerable<string> strings)
+        {
+            return this.SetTempDataAndRedirectToAction(string.Join(", ", strings));
         }
 
         private ActionResult SetTempDataAndRedirectToAction(string msg)
