@@ -1,0 +1,29 @@
+﻿@model DateTime
+
+@{
+    List<SelectListItem> days = new List<SelectListItem>();
+    for (int i = 1; i <= 31; i++)
+    {
+        days.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.Day ? true : false) });
+    }
+
+    List<SelectListItem> months = new List<SelectListItem>();
+    for (int i = 1; i <= 12; i++)
+    {
+        months.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.Month ? true : false) });
+    }
+
+    List<SelectListItem> years = new List<SelectListItem>();
+
+    int prevYearCount = ViewBag.PreviousYearCount;
+    int nextYearCount = ViewBag.NextYearCount;
+
+    for (int i = Model.Year - prevYearCount; i <= Model.Year + nextYearCount; i++)
+    {
+        years.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.Year ? true : false) });
+    }
+}
+
+@Html.DropDownList("days", days)
+@Html.DropDownList("months", months)
+@Html.DropDownList("years", years)
