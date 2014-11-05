@@ -1,13 +1,13 @@
-﻿@model List<AjaxMVCDemos.Models.BookViewModel>
+﻿@model IEnumerable<AjaxMVCDemos.Models.BookViewModel>
 
-@for (int i = 0; i < Model.Count; i++)
+@foreach(var book in Model)
 {
     <div>
         <strong>
-            @Model[i].Title
+            @book.Title
         </strong>
     </div>
-    @Ajax.ActionLink("See content", "ContentById", "Books", new { id = Model[i].Id },
+    @Ajax.ActionLink("See content", "ContentById", "Books", new { id = book.Id },
         new AjaxOptions
             {
                 InsertionMode = InsertionMode.Replace,
