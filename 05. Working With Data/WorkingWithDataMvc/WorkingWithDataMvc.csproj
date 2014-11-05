@@ -171,6 +171,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemoryStorageController.cs" />
     <Compile Include="Controllers\ModelBindingController.cs" />
     <Compile Include="Controllers\TemplatesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -246,6 +247,9 @@
     <Content Include="Views\Templates\DisplayTemplates\IndexViewModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Templates\DisplayTemplates\CustomDate.cshtml" />
+    <Content Include="Views\MemoryStorage\Index.cshtml" />
+    <Content Include="Views\MemoryStorage\Redirection.cshtml" />
+    <Content Include="Views\MemoryStorage\RedirectForCache.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
