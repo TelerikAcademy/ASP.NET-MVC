@@ -235,6 +235,8 @@
     <Content Include="Views\ModelBinding\_ObjectBinding.cshtml" />
     <Content Include="Views\ModelBinding\_NestedObject.cshtml" />
     <Content Include="Views\ModelBinding\_CollectionOfPrimitiveTypes.cshtml" />
+    <Content Include="Views\ModelBinding\_CollectionOfObjects.cshtml" />
+    <Content Include="Views\ModelBinding\_CollectionOfFiles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

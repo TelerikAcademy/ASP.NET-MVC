@@ -1,0 +1,8 @@
+﻿@using (Html.BeginForm("CollectionOfFiles", "ModelBinding", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="file" name="files" />
+    <input type="file" name="files" />
+    <input type="file" name="files" />
+    <input type="submit" />
+}
