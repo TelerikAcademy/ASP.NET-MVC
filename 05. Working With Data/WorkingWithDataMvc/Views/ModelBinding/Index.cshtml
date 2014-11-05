@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (TempData["Success"] != null)
+{
+    <p>
+        @TempData["Success"]
+    </p>
+}
+
+@using (Html.BeginForm("Parameter", "ModelBinding", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @*@Html.TextBox("first", null, new { type = "number" })*@
+    <div>
+        <input type="number" name="first" />
+    </div>
+    <div>
+        <input type="text" name="second" />
+    </div>
+    <div>
+        <input type="checkbox" name="third" value="true" />
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
+}
+
