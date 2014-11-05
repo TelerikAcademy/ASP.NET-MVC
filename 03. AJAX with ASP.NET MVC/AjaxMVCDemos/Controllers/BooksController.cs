@@ -56,7 +56,8 @@
 
         public JsonResult AllBooks()
         {
-            var books = BooksData.GetAll();
+            var books = BooksData.GetAll()
+                .AsQueryable().Select(TitledBookViewModel.FromBook);
 
             return this.Json(books, JsonRequestBehavior.AllowGet);
         }

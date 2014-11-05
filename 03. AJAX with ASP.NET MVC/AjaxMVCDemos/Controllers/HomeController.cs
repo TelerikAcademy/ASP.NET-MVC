@@ -18,8 +18,9 @@
 
         public ActionResult ServerTime()
         {
+            var isAjax = Request.IsAjaxRequest();
             Thread.Sleep(2000);
-            return this.Content(DateTime.Now.ToLongTimeString());
+            return this.Content(isAjax + " " + DateTime.Now.ToLongTimeString());
         }
 
         public ActionResult JQueryAjax()
