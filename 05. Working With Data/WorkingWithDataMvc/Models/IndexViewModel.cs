@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WorkingWithDataMvc.Models
 {
@@ -9,5 +10,8 @@ namespace WorkingWithDataMvc.Models
         public int Number { get; set; }
 
         public DateTime Date { get; set; }
+
+        [UIHint("CustomDate")]
+        public DateTime AnotherDate { get; set; }
     }
 }
