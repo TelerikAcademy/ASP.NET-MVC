@@ -1,0 +1,17 @@
+﻿@model WorkingWithDataMvc.Models.PersonViewModel
+
+@using (Html.BeginForm("Object", "ModelBinding", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @*<input type="text" name="FirstName" />*@
+        @Html.EditorFor(m => m.FirstName)
+    </div>
+    <div>
+        @Html.EditorFor(m => m.LastName)
+    </div>
+    <div>
+        @Html.EditorFor(m => m.Age)
+    </div>
+    <input type="submit" />
+}

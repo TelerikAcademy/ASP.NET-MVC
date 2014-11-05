@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
@@ -9,6 +8,10 @@
         @TempData["Success"]
     </p>
 }
+
+<p>
+    Bind parameter
+</p>
 
 @using (Html.BeginForm("Parameter", "ModelBinding", FormMethod.Post))
 {
@@ -28,3 +31,8 @@
     </div>
 }
 
+<p>
+    Bind object
+</p>
+
+@Html.Partial("_ObjectBinding")
