@@ -18,12 +18,15 @@
     @Html.AntiForgeryToken()
     @*@Html.TextBox("first", null, new { type = "number" })*@
     <div>
+        first: 
         <input type="number" name="first" />
     </div>
     <div>
+        second: 
         <input type="text" name="second" />
     </div>
     <div>
+        third:
         <input type="checkbox" name="third" value="true" />
     </div>
     <div>
@@ -36,3 +39,10 @@
 </p>
 
 @Html.Partial("_ObjectBinding")
+
+<p>
+    Bind nested object
+</p>
+
+
+@Html.Partial("_NestedObject")

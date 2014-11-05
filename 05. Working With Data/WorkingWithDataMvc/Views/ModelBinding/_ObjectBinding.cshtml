@@ -5,12 +5,15 @@
     @Html.AntiForgeryToken()
     <div>
         @*<input type="text" name="FirstName" />*@
+        @Html.LabelFor(m => m.FirstName)
         @Html.EditorFor(m => m.FirstName)
     </div>
     <div>
+        @Html.LabelFor(m => m.LastName)
         @Html.EditorFor(m => m.LastName)
     </div>
     <div>
+        @Html.LabelFor(m => m.Age)
         @Html.EditorFor(m => m.Age)
     </div>
     <input type="submit" />

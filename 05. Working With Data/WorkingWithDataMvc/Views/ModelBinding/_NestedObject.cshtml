@@ -1,0 +1,20 @@
+﻿@model WorkingWithDataMvc.Models.PersonWithAddressViewModel
+
+@using (Html.BeginForm("NestedObject", "ModelBinding", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Address.City)
+        @Html.EditorFor(m => m.Address.City)
+    </div>
+    <div>
+        @*<input type="text" name="Address.Country" />*@
+        @Html.LabelFor(m => m.Address.Country)
+        @Html.EditorFor(m => m.Address.Country)
+    </div>
+    <input type="submit" />
+}

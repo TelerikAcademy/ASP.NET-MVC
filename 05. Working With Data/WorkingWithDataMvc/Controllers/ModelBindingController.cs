@@ -24,6 +24,13 @@
             return this.SetTempDataAndRedirectToAction(string.Format("{0} {1} {2}", person.FirstName, person.LastName, person.Age));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult NestedObject(PersonWithAddressViewModel person)
+        {
+            return this.SetTempDataAndRedirectToAction(string.Format("{0} {1} {2}", person.Name, person.Address.City, person.Address.Country));
+        }
+
         private ActionResult SetTempDataAndRedirectToAction(string msg)
         {
             TempData["Success"] = msg;
