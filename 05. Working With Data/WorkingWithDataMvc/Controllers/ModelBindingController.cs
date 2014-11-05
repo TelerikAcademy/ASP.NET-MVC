@@ -1,7 +1,9 @@
 ﻿namespace WorkingWithDataMvc.Controllers
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
+    using System.Web;
     using System.Web.Mvc;
     using WorkingWithDataMvc.Models;
 
@@ -51,6 +53,14 @@
             }
 
             return this.SetTempDataAndRedirectToAction(result.ToString());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CollectionOfFiles(IEnumerable<HttpPostedFileBase> files)
+        {
+            var names = files.Where(f => f != null).Select(f => f.FileName);
+            return this.SetTempDataAndRedirectToAction(string.Join(", ", names));
         }
 
         private ActionResult SetTempDataAndRedirectToAction(string msg)
