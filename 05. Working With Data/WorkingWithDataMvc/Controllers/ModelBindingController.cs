@@ -1,6 +1,7 @@
 ﻿namespace WorkingWithDataMvc.Controllers
 {
     using System.Collections.Generic;
+    using System.Text;
     using System.Web.Mvc;
     using WorkingWithDataMvc.Models;
 
@@ -37,6 +38,19 @@
         public ActionResult CollectionOfPrimitiveTypes(IEnumerable<string> strings)
         {
             return this.SetTempDataAndRedirectToAction(string.Join(", ", strings));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CollectionOfObjects(IEnumerable<PersonViewModel> persons)
+        {
+            var result = new StringBuilder();
+            foreach (var person in persons)
+            {
+                result.AppendLine(string.Format("{0} {1} {2}", person.FirstName, person.LastName, person.Age));
+            }
+
+            return this.SetTempDataAndRedirectToAction(result.ToString());
         }
 
         private ActionResult SetTempDataAndRedirectToAction(string msg)

@@ -1,0 +1,30 @@
+﻿@model IList<WorkingWithDataMvc.Models.PersonViewModel>
+
+@using (Html.BeginForm("CollectionOfObjects", "ModelBinding", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    for (int i = 0; i < 3; i++)
+    {
+        <h3>
+            Person @i
+        </h3>
+        <div>
+            @*<input type="text" name="[0].FirstName" />*@
+            @Html.LabelFor(m => Model[i].FirstName)
+            @Html.EditorFor(m => Model[i].FirstName)
+        </div>
+        <div>
+            @*<input type="text" name="[1].FirstName" />*@
+            @Html.LabelFor(m => Model[i].LastName)
+            @Html.EditorFor(m => Model[i].LastName)
+        </div>
+        <div>
+            @*<input type="text" name="[2].FirstName" />*@
+            @Html.LabelFor(m => Model[i].Age)
+            @Html.EditorFor(m => Model[i].Age)
+        </div>
+        <br />
+    }
+
+    <input type="submit" />
+}
