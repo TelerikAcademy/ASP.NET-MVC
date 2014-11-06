@@ -1,12 +1,15 @@
-﻿using System.Web.Mvc;
-
-namespace Caching.MVC.Controllers
+﻿namespace Caching.MVC.Controllers
 {
+    using System;
+    using System.Web.Mvc;
+
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            ViewBag.Id = id;
+            ViewBag.Time = DateTime.Now;
+            return this.View();
         }
     }
 }
