@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="[OutputCache] demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Caching._Default" %>
 <%--<%@ OutputCache Duration="10" VaryByParam="none" %>--%>
-<%--<%@ OutputCache Duration="10" VaryByParam="none" Location="Any" %>--%>
-<%--<%@ OutputCache Duration="10" VaryByParam="id" %>--%>
-<%--<%@ OutputCache Duration="10" VaryByCustom="Browser" VaryByParam="none" %>--%>
+<%--<%@ OutputCache Duration="10" VaryByParam="none" Location="Server" %>--%>
+<%--<%@ OutputCache Duration="15" VaryByParam="id" %>--%>
+<%--<%@ OutputCache Duration="20" VaryByCustom="Browser" VaryByParam="none" %>--%>
 <%--<%@ OutputCache CacheProfile="ShortLived" %>--%>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
