@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(Caching.MVC.Startup))]
+
 namespace Caching.MVC
 {
     public partial class Startup
