@@ -3,7 +3,7 @@
 <%--<%@ OutputCache Duration="10" VaryByParam="none" Location="Server" %>--%>
 <%--<%@ OutputCache Duration="15" VaryByParam="id" %>--%>
 <%--<%@ OutputCache Duration="20" VaryByCustom="Browser" VaryByParam="none" %>--%>
-<%--<%@ OutputCache CacheProfile="ShortLived" %>--%>
+<%--<%@ OutputCache CacheProfile="LongLived" %>--%>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="hero-unit">
