@@ -12,8 +12,8 @@
         // [OutputCache(CacheProfile = "LongLived")]
         public ActionResult Index(int? id)
         {
-            ViewBag.Id = id;
-            ViewBag.Time = DateTime.Now;
+            this.ViewBag.Id = id;
+            this.ViewBag.Time = DateTime.Now;
             return this.View();
         }
 

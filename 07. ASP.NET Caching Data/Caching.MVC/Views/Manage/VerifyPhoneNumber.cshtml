@@ -12,7 +12,7 @@
     <h4>Enter verification code</h4>
     <h5>@ViewBag.Status</h5>
     <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
+    @Html.ValidationSummary(string.Empty, new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(m => m.Code, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">

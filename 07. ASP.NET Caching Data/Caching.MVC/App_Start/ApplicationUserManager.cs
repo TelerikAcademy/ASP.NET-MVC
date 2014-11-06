@@ -24,18 +24,18 @@
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
-                AllowOnlyAlphanumericUserNames = false,
+                AllowOnlyAlphanumericUserNames = false, 
                 RequireUniqueEmail = true
             };
 
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = false,
-                RequireDigit = false,
-                RequireLowercase = false,
-                RequireUppercase = false,
+                RequiredLength = 6, 
+                RequireNonLetterOrDigit = false, 
+                RequireDigit = false, 
+                RequireLowercase = false, 
+                RequireUppercase = false, 
             };
 
             // Configure user lockout defaults
@@ -46,13 +46,13 @@
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
             manager.RegisterTwoFactorProvider(
-                "Phone Code",
+                "Phone Code", 
                 new PhoneNumberTokenProvider<ApplicationUser> { MessageFormat = "Your security code is {0}" });
             manager.RegisterTwoFactorProvider(
-                "Email Code",
+                "Email Code", 
                 new EmailTokenProvider<ApplicationUser>
                     {
-                        Subject = "Security Code",
+                        Subject = "Security Code", 
                         BodyFormat = "Your security code is {0}"
                     });
             manager.EmailService = new EmailService();
