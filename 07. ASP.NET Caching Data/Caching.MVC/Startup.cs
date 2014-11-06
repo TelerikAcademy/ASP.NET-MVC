@@ -1,10 +1,11 @@
 ﻿using Microsoft.Owin;
-using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Caching.MVC.Startup))]
+[assembly: OwinStartup(typeof(Caching.MVC.Startup))]
 
 namespace Caching.MVC
 {
+    using Owin;
+
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
