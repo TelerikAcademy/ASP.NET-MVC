@@ -19,13 +19,13 @@
                 var dependency = new CacheDependency(filePath);
                 var content = string.Format("{0} [{1}]", File.ReadAllText(filePath), DateTime.Now);
                 Cache.Insert(
-                    "file",         // key
-                    content,   // object
-                    dependency,     // dependencies
-                    DateTime.Now.AddHours(1), // absolute exp.
-                    TimeSpan.Zero,               // sliding exp.
-                    CacheItemPriority.Default,   // priority
-                    null);          // callback delegate
+                    "file",                    // key
+                    content,                   // object
+                    dependency,                // dependencies
+                    DateTime.Now.AddHours(1),  // absolute exp.
+                    TimeSpan.Zero,             // sliding exp.
+                    CacheItemPriority.Default, // priority
+                    null);                     // callback delegate
             }
 
             this.filePathSpan.InnerText = filePath;
