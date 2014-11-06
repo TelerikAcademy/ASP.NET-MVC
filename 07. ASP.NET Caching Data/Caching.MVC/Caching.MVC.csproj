@@ -257,6 +257,7 @@
     <Content Include="Views\Home\NotCachedPage.cshtml" />
     <Content Include="Views\Home\ChildAction.cshtml" />
     <Content Include="Views\Home\PageFragmentCaching.cshtml" />
+    <Content Include="Views\Home\DataCaching.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
