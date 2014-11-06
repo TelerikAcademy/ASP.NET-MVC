@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Caching.SiteMaster" %>
+<%@ Import Namespace="Caching" %>
 
 <!DOCTYPE html>
 
@@ -49,7 +50,7 @@
                             <span class="icon-bar"></span>
                         </button>
 
-                        <a class="brand" runat="server" href="~/">ASP.NET Caching Demo</a>
+                        <a class="brand" runat="server" href="~/">ASP.NET WebForms Caching</a>
 
                         <div class="nav-collapse collapse">
                             <ul class="nav nav-pills nav-stacked">
@@ -67,12 +68,14 @@
         </header>
 
         <div class="container">
+            <p>&bull; Master page: <%= GlobalCounter.Next() %></p>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
+                <p>&bull; Master page time: <%= DateTime.Now.ToString() %></p>
+                <p>&bull; Master page number: <%= GlobalCounter.Next() %></p>
                 <p>&copy; <%: DateTime.Now.Year %> - Telerik Academy</p>
-                <p>Master page time: <%= DateTime.Now.ToString() %></p>
             </footer>
         </div>
 

@@ -180,6 +180,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalCounter.cs" />
     <Compile Include="PostCacheSubstitution.aspx.cs">
       <DependentUpon>PostCacheSubstitution.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

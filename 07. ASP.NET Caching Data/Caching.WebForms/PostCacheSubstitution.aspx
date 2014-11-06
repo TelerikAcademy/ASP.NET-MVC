@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="Post-Cache Substitution demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PostCacheSubstitution.aspx.cs" Inherits="Caching.PostCacheSubstitution" %>
 <%@ OutputCache Duration="10" VaryByParam="none" %>
+<%@ Import Namespace="System.Globalization" %>
 
 <script runat="server">
    protected static string GetCurrentTime(HttpContext ctx) {
-      return DateTime.Now.ToString();
+      return DateTime.Now.ToString(CultureInfo.InvariantCulture);
    }
 </script>
 

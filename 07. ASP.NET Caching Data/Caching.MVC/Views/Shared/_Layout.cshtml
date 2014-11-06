@@ -15,7 +15,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Caching demo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("ASP.NET MVC Caching Demo", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -27,10 +27,13 @@
         </div>
     </div>
     <div class="container body-content">
+        <p>&bull; Layout number: @GlobalCounter.Next()</p>
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Telerik Academy - Layout time: @DateTime.Now</p>
+            <p>&bull; Layout time: @DateTime.Now</p>
+            <p>&bull; Layout number: @GlobalCounter.Next()</p>
+            <p>&copy; @DateTime.Now.Year - Telerik Academy</p>
         </footer>
     </div>
 

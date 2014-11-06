@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="[OutputCache] demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Caching._Default" %>
+<%@ Import Namespace="Caching" %>
 <%--<%@ OutputCache Duration="10" VaryByParam="none" %>--%>
 <%--<%@ OutputCache Duration="10" VaryByParam="none" Location="Server" %>--%>
 <%--<%@ OutputCache Duration="15" VaryByParam="id" %>--%>
@@ -10,5 +11,6 @@
         <h1><%= Page.Title %></h1>
         <h2>Time: <%= DateTime.Now %></h2>
         <h2>Value of the "id" parameter: <%= Request.QueryString["id"] %></h2>
+        <h2>Page number: <%= GlobalCounter.Next() %></h2>
     </div>
 </asp:Content>
