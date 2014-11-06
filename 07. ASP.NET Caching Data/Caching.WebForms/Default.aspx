@@ -8,9 +8,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="hero-unit">
-        <h1><%= Page.Title %></h1>
-        <h2>Time: <%= DateTime.Now %></h2>
-        <h2>Value of the "id" parameter: <%= Request.QueryString["id"] %></h2>
-        <h2>Page number: <%= GlobalCounter.Next() %></h2>
+        <h2><%= Page.Title %></h2>
+        <h3>Time: <%= DateTime.Now %></h3>
+        <h3>Value of the "id" parameter: <%= Request.QueryString["id"] %></h3>
+        <h3>Page number: <%= GlobalCounter.Next() %></h3>
     </div>
 </asp:Content>

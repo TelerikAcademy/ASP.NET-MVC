@@ -1,18 +1,26 @@
 ﻿<%@ Page Title="Post-Cache Substitution demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PostCacheSubstitution.aspx.cs" Inherits="Caching.PostCacheSubstitution" %>
 <%@ OutputCache Duration="10" VaryByParam="none" %>
 <%@ Import Namespace="System.Globalization" %>
+<%@ Import Namespace="Caching" %>
 
 <script runat="server">
-   protected static string GetCurrentTime(HttpContext ctx) {
-      return DateTime.Now.ToString(CultureInfo.InvariantCulture);
-   }
+    protected static string GetCurrentTime(HttpContext ctx)
+    {
+        return DateTime.Now.ToLongTimeString();
+    }
+    protected static string GetNewNumber(HttpContext ctx)
+    {
+        return GlobalCounter.Next().ToString(CultureInfo.InvariantCulture);
+    }
 </script>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="hero-unit">
-        <h1><%= Page.Title %></h1>
-        <h2><%= DateTime.Now %><br /></h2>
-        <h2>Response.WriteSubstitution: <% Response.WriteSubstitution(GetCurrentTime); %></h2>
-        <h2>GetCurrentTime: <asp:Substitution runat="server" MethodName="GetCurrentTime" /></h2>
+        <h2><%= Page.Title %></h2>
+        <h3>Page loaded: <%= DateTime.Now.ToLongTimeString() %><br /></h3>
+        <h3>Response.WriteSubstitution: <% Response.WriteSubstitution(GetCurrentTime); %></h3>
+        <h3>GetCurrentTime (&lt;asp:Substitution&gt;): <asp:Substitution runat="server" MethodName="GetCurrentTime" /></h3>
+        <h3>Page number on load: <%= GlobalCounter.Next() %></h3>
+        <h3>Page number with Response.WriteSubstitution: <% Response.WriteSubstitution(GetNewNumber); %></h3>
     </div>
 </asp:Content>
