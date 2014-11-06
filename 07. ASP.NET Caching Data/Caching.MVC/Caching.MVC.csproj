@@ -255,6 +255,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\NotCachedPage.cshtml" />
+    <Content Include="Views\Home\ChildAction.cshtml" />
+    <Content Include="Views\Home\PageFragmentCaching.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

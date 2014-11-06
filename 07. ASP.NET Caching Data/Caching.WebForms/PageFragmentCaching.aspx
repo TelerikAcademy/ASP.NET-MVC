@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="hero-unit">
-        <h1><%= Page.Title %></h1>
+        <h2><%= Page.Title %></h2>
         <my:CacheableUserControl runat="server" />
     </div>
 </asp:Content>

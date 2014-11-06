@@ -21,5 +21,17 @@
         {
             return this.View();
         }
+
+        public ActionResult PageFragmentCaching()
+        {
+            return this.View();
+        }
+
+        [OutputCache(Duration = 10, VaryByParam = "none")]
+        [ChildActionOnly]
+        public ActionResult ChildAction()
+        {
+            return this.PartialView();
+        }
     }
 }
