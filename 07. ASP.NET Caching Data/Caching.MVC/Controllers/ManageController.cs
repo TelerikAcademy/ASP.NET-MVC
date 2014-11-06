@@ -14,6 +14,11 @@
     [Authorize]
     public class ManageController : Controller
     {
+        // Used for XSRF protection when adding external logins
+        private const string XsrfKey = "XsrfId";
+
+        private ApplicationUserManager userManager;
+
         public ManageController()
         {
         }
@@ -23,18 +28,41 @@
             this.UserManager = userManager;
         }
 
-        private ApplicationUserManager _userManager;
+        public enum ManageMessageId
+        {
+            AddPhoneSuccess,
+
+            ChangePasswordSuccess,
+
+            SetTwoFactorSuccess,
+
+            SetPasswordSuccess,
+
+            RemoveLoginSuccess,
+
+            RemovePhoneSuccess,
+
+            Error
+        }
 
         public ApplicationUserManager UserManager
         {
             get
             {
-                return this._userManager ?? this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return this.userManager ?? this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
 
             private set
             {
-                this._userManager = value;
+                this.userManager = value;
+            }
+        }
+
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return this.HttpContext.GetOwinContext().Authentication;
             }
         }
 
@@ -72,7 +100,7 @@
                                     this.AuthenticationManager.TwoFactorBrowserRememberedAsync(
                                         this.User.Identity.GetUserId())
                             };
-            return View(model);
+            return this.View(model);
         }
 
         // GET: /Manage/RemoveLogin
@@ -80,7 +108,7 @@
         {
             var linkedAccounts = this.UserManager.GetLogins(this.User.Identity.GetUserId());
             this.ViewBag.ShowRemoveButton = this.HasPassword() || linkedAccounts.Count > 1;
-            return View(linkedAccounts);
+            return this.View(linkedAccounts);
         }
 
         // POST: /Manage/RemoveLogin
@@ -125,7 +153,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return View(model);
+                return this.View(model);
             }
 
             // Generate the token and send it
@@ -191,7 +219,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return View(model);
+                return this.View(model);
             }
 
             var result =
@@ -210,7 +238,7 @@
 
             // If we got this far, something failed, redisplay form
             this.ModelState.AddModelError(string.Empty, "Failed to verify phone");
-            return View(model);
+            return this.View(model);
         }
 
         // GET: /Manage/RemovePhoneNumber
@@ -244,7 +272,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return View(model);
+                return this.View(model);
             }
 
             var result =
@@ -265,7 +293,7 @@
             }
 
             this.AddErrors(result);
-            return View(model);
+            return this.View(model);
         }
 
         // GET: /Manage/SetPassword
@@ -297,7 +325,7 @@
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 
         // GET: /Manage/ManageLogins
@@ -352,18 +380,6 @@
         }
 
         #region Helpers
-
-        // Used for XSRF protection when adding external logins
-        private const string XsrfKey = "XsrfId";
-
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return this.HttpContext.GetOwinContext().Authentication;
-            }
-        }
-
         private async Task SignInAsync(ApplicationUser user, bool isPersistent)
         {
             this.AuthenticationManager.SignOut(
@@ -402,23 +418,6 @@
             }
 
             return false;
-        }
-
-        public enum ManageMessageId
-        {
-            AddPhoneSuccess, 
-
-            ChangePasswordSuccess, 
-
-            SetTwoFactorSuccess, 
-
-            SetPasswordSuccess, 
-
-            RemoveLoginSuccess, 
-
-            RemovePhoneSuccess, 
-
-            Error
         }
 
         #endregion
