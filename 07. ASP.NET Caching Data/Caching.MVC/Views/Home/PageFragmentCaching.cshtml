@@ -1,6 +1,10 @@
-﻿@{
+﻿@using System.Globalization;
+@{
     ViewBag.Title = "Page Fragment Caching";
 }
 
 <h2>@ViewBag.Title</h2>
 @Html.Action("ChildAction")
+
+<h3>My time is: @DateTime.Now.ToString(CultureInfo.InvariantCulture)</h3>
+<h3>My number is: @GlobalCounter.Next()</h3>
