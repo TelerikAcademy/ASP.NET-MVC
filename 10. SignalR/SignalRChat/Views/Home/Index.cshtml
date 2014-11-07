@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Home Page";  
+}
+
+
+<div id="currentRooms">
+    <div>
+        Current rooms:
+    </div>
+</div>
+
+<div>
+    <input type="text" id="room" value="Room" />
+    <button id="join-room">Join</button>
+    <br />    
+    <input type="text" id="message" value="message" />
+    <button id="send-message">Send</button>
+    <br />
+    <input type="text" id="room-message" value="message" />
+    <button id="send-message-to-room">Send To Rooms Only</button>
+</div>
+
+<div id="messages">
+
+</div>
+
+<script>
+    var rooms = [];
+
+    $(document).ready(function () {
+
+        $.connection.hub.start();
+
+        var chat = $.connection.chat;
+
+        $('#send-message').click(function () {
+
+            var msg = $('#message').val();
+
+            chat.server.sendMessage(msg);
+        });
+
+        $("#join-room").click(function () {
+
+            var room = $('#room').val();
+
+            chat.server.joinRoom(room)
+        });
+
+        $('#send-message-to-room').click(function () {
+
+            var msg = $('#room-message').val();
+
+            chat.server.sendMessageToRoom(msg, rooms);
+        });
+
+        chat.client.addMessage = addMessage;
+        chat.client.joinRoom = joinRoom;
+    });
+
+    function addMessage(message) {
+        $('#messages').append('<div>' + message + '</div>');
+    }
+
+    function joinRoom(room) {
+        rooms.push(room);
+        $('#currentRooms').append('<div>' + room + '</div>');
+    }
+</script>
