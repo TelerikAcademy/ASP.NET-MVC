@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Kendo.Mvc.UI.TreeViewItemModel>
+
+@{
+    ViewBag.Title = "Tree View";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@(Html.Kendo()
+    .TreeView()
+    .Name("tree-view")
+    .BindTo(Model))
+

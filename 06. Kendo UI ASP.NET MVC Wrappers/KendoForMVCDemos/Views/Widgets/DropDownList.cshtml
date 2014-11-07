@@ -1,0 +1,59 @@
+﻿@model IEnumerable<KendoForMVCDemos.ViewModels.CategoryViewModel>
+
+@{
+    ViewBag.Title = "DropDownList";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <div>
+        Category
+    </div>
+    @(Html.Kendo()
+        .DropDownList()
+        .BindTo(Model)
+        .Name("categories")
+        .OptionLabel("Select category")
+        .DataTextField("Name")
+        .DataValueField("Id"))
+</div>
+
+<div>
+    <div>
+        Books
+    </div>
+    @(Html.Kendo()
+        .DropDownList()
+        .Name("books")
+        .OptionLabel("Select book")
+        .DataTextField("Title")
+        .DataValueField("Id")
+        .CascadeFrom("categories")
+        .Events(ev => ev.Select("selectedValue"))
+        .DataSource(data =>
+        {
+            data.Read(read =>
+                {
+                    read.Action("GetCascadingBooks", "Widgets")
+                        .Data("cascadeCategories");
+                })
+                .ServerFiltering(true);
+        }))
+</div>
+
+<div id="book-id">
+
+</div>
+
+<script>
+    function cascadeCategories() {
+        return {
+            categoryId: $('#categories').val()
+        }
+    }
+
+    function selectedValue(e) {
+        $('#book-id').text(this.dataItem(e.item.index()).Id);
+    }
+</script>

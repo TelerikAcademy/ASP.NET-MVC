@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Calendar";
+}
+
+<h2>Calendar</h2>
+@(Html.Kendo()
+    .Calendar()
+    .Name("calendar")
+    .Min(DateTime.Now.AddMonths(-3))
+    .Max(DateTime.Now.AddMonths(3))
+    .Events(ev =>
+    {
+        ev.Change("selectDate");
+    }))
+
+<div id="selected-data">
+
+</div>
+
+<script>
+    function selectDate(data) {
+        $("#selected-data").text(this.value());
+    }
+</script>

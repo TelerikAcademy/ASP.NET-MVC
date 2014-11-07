@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @(Html.Kendo()
+        .Upload()
+        .Name("upload")
+        .Multiple(true)
+        .Async(async =>
+        {
+            async.AutoUpload(true)
+                .Save("UploadedFiles", "Widgets");
+        }))
+</div>
+
