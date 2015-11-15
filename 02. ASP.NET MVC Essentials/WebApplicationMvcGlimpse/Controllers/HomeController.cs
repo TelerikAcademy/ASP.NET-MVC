@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace WebApplicationMvcGlimpse.Controllers
@@ -36,19 +32,17 @@ namespace WebApplicationMvcGlimpse.Controllers
 
         public ActionResult ReturnJSON()
         {
-            return this.Json(DateTime.Now, JsonRequestBehavior.AllowGet);
+            return Json(DateTime.Now, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult ReturnJS()
         {
-            return this.JavaScript("var a = 1;");
+            return JavaScript("var a = 1;");
         }
 
         public ActionResult ReturnFile()
         {
             return new HttpUnauthorizedResult();
-
-            return this.File(@"C:\Temp\test.txt", "application/pdf", "file.pdf");
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Web;
-using System.Web.Mvc;
-using WebApplicationMvcGlimpse.App_Start;
+﻿using System.Web.Mvc;
 
 namespace WebApplicationMvcGlimpse
 {

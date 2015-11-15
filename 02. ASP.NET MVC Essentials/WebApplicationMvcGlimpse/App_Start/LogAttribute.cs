@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
+﻿using System.Diagnostics;
 using System.Web.Mvc;
 
-namespace WebApplicationMvcGlimpse.App_Start
+namespace WebApplicationMvcGlimpse
 {
     public class LogAttribute : ActionFilterAttribute
     {
