@@ -23,7 +23,7 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        @if (this.ViewContext.RouteData.DataTokens["area"] == "Administration")
+                        @if (ViewContext.RouteData.DataTokens["area"] == "Administration")
                         {
                             <li>@Html.ActionLink("ViewAll", "ViewAll", "Users", new { area = "Administration" })</li>
                         }
