@@ -30,15 +30,14 @@
 # What's Coming Next?
 - `ASP.NET MVC` Course
   - Continuation of courses about .NET Framework Web Platforms
-    - We've already studied WCF, ASP.NET WebAPI and ASP.NET Web Forms
+    - Already studied WCF, ASP.NET Web API and Web Forms
 - Lectures 5 times a week
 - The course evaluation?
   - Practical exam (with peer evaluation)
 	- Friday, February 19, 2016
+    - Evaluations till 10:00 on February 25, 2016 (Thursday)
   - Individual final project
-	- Tuesday, February 23, 2016
-  - Evaluations till 10:00 on February 23, 2016 (Tuesday)
-
+	- Defence: Wednesday, February 24, 2016
 
 [Curriculum](http://academy.telerik.com/images/default-source/Academy_Curriculum/ta_plan_bg.png?sfvrsn=0)
 
@@ -234,8 +233,8 @@
 <td>--</td>
 <td>Защита на индивидуалните проекти</td>
 <td>all day</td>
-<td>Tue</td>
-<td>23.02</td>
+<td>Wed</td>
+<td>24.02</td>
 <td>10:00</td>
 <td>Trainers</td>
 </tr>
@@ -342,10 +341,24 @@
 
 
 # Required Software
--	Software needed for this course:
-  -	Microsoft Windows (Win8.1 / Win10)
-  - Visual Studio 2015 (with Update 1)
-  - Microsoft SQL Server 2014
+- Tools that you need:
+	- IDE: Visual Studio 2015 with Update 1
+	- Framework: .NET Framework 4.6
+	- Web server: IIS Express (included in VS)
+	- Data: Microsoft SQL Sever (Express or LocalDB)
+- Visual Studio installer will install everything you need
+	- [https://www.visualstudio.com/downloads/download-visual-studio-vs](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+
+# The Technologies
+- Technologies that you need to know
+	- C# (OOP, unit testing, async, etc.)
+	- ASP.NET
+	- HTML(5) and CSS
+	- JavaScript (jQuery, KendoUI, AngularJS, etc.)
+	- AJAX, Single-page apps
+	- Databases (MS SQL Server)
+	- ORM (Entity Framework and LINQ)
+	- Web and HTTP
 
 
 <!-- section start -->
