@@ -1,4 +1,4 @@
-# Introduction to ASP.NET MVC Homework
+# ASP.NET MVC Essentials Homework
 
 1. Write down in a text file all the major similarities and differences you can find between ASP.NET Web Forms and ASP.NET MVC
 1. Using ASP.NET MVC write the same web calculator as: http://www.gwebtools.com/bit-calculator
