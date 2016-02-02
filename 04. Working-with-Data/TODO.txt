@@ -1,1 +1,2 @@
+Ninject - more slides and demo
 AutoMapper - more examples and add demo
