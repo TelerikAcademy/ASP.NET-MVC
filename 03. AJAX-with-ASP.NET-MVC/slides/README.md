@@ -1,9 +1,9 @@
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-title', showInPresentation:'True', hasScriptWrapper:'True', style:'' } -->
 # AJAX with ASP.NET MVC
-<img class="slide-image" src="\imgs\pic01.png" style="top:52.89%; left:83.27%; width:22.92%; z-index:-1" />
-<img class="slide-image" src="\imgs\pic02.png" style="top:9.29%; left:6.55%; width:23.05%; z-index:-1" />
-<img class="slide-image" src="\imgs\pic03.png" style="top:55.54%; left:46.58%; width:28.55%; z-index:-1" />
+<img class="slide-image" src="imgs/pic01.png" style="top:52.89%; left:83.27%; width:22.92%; z-index:-1" />
+<img class="slide-image" src="imgs/pic02.png" style="top:9.29%; left:6.55%; width:23.05%; z-index:-1" />
+<img class="slide-image" src="imgs/pic03.png" style="top:55.54%; left:46.58%; width:28.55%; z-index:-1" />
 <div style="font-size: 24px; position: relative; top: 45%; left: 5%">
     <p>*ASP.NET MVC*</p>
     <p>Telerik Software Academy</p>
@@ -23,12 +23,12 @@
   - BeginForm
   - Partial views and AJAX
 - JSON, AJAX and ASP.NET MVC
-<img class="slide-image" src="\imgs\pic04.png" style="top:13.22%; left:67.10%; width:36.39%; z-index:-1" />
+<img class="slide-image" src="imgs/pic04.png" style="top:13.22%; left:67.10%; width:36.39%; z-index:-1" />
 
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:'True', hasScriptWrapper:'True', style:'' } -->
 # What is AJAX?
-<img class="slide-image" src="\imgs\pic05.png" style="top:45%; left:25%; width:50%; z-index:-1" />
+<img class="slide-image" src="imgs/pic05.png" style="top:45%; left:25%; width:50%; z-index:-1" />
 
 
 <!-- attr: { id:'', class:'', showInPresentation:'True', hasScriptWrapper:'False', style:'font-size: 42px' } -->
@@ -261,7 +261,7 @@ public static void RegisterBundles(BundleCollection bundles)
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:'True', hasScriptWrapper:'True', style:'' } -->
 # AJAX Helpers in ASP.NET MVC
-<img class="slide-image" src="\imgs\pic07.png" style="top:45%; left:65%; width:30%; z-index:-1" />
+<img class="slide-image" src="imgs/pic07.png" style="top:45%; left:65%; width:30%; z-index:-1" />
 
 
 <!-- attr: { id:'', class:'', showInPresentation:'True', hasScriptWrapper:'False', style:'font-size: 42px' } -->
@@ -360,7 +360,7 @@ public ActionResult Search(string query)
 <!-- section start -->
 <!-- attr: { id:'', class:'slide-section', showInPresentation:'True', hasScriptWrapper:'True', style:'' } -->
 # JSON and MVC
-<img class="slide-image" src="\imgs\pic08.png" style="top:45%; left:65%; width:30%; z-index:-1" />
+<img class="slide-image" src="imgs/pic08.png" style="top:45%; left:65%; width:30%; z-index:-1" />
 
 
 <!-- attr: { id:'', class:'', showInPresentation:'True', hasScriptWrapper:'False', style:'font-size: 42px' } -->
