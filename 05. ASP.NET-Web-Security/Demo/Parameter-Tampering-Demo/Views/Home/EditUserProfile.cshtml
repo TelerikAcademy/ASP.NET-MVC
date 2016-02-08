@@ -15,10 +15,9 @@
         <b>@ViewBag.user.Profile.Credit</b>$
     </p>
     
-    <form action="/Home/DoEditUserProfile/@ViewBag.user.UserName">
+    <form action="/Home/DoEditUserProfile/@ViewBag.user.UserName" method="post">
         First name: <input name="FirstName" value="@ViewBag.user.Profile.FirstName" /><br />
         Last name: <input name="LastName" value="@ViewBag.user.Profile.LastName" /><br />
-        <input name="Credit" type="hidden" value="@ViewBag.user.Profile.Credit" />
         <input type="submit" value="Send" />
     </form>
 }
