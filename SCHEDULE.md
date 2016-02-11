@@ -16,6 +16,5 @@
 | 10 | KendoUI ASP.NET MVC Wrappers           | 4h       | Fri | 12.02 | 18:00 | Ivo      |
 | -- | **Workshop:** Подготовка за изпит      | 4h       | Mon | 15.02 | 17:00 | Niki     |
 | 11 | ASP.NET Core 1.0                       | 2h       | Tue | 16.02 | 18:00 | Ivo      |
-| -- | **Workshop:** ASP.NET Core 1.0         | 4h       | Wed | 17.02 | 18:00 | Niki     |
 | -- | Практически изпит                      | all day  | Fri | 19.02 | 10:00 | Trainers |
 | -- | Защита на индивидуалните проекти       | all day  | Wed | 24.02 | 10:00 | Trainers |
