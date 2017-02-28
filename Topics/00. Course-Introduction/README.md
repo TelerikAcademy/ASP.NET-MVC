@@ -1,7 +1,7 @@
 <!-- section start -->
 <!-- attr: { id:'title', class:'slide-title', hasScriptWrapper:true } -->
 # ASP.NET MVC
-## Course Program, Evaluation, Exam, Trainers, Resources
+## Course Program, Evaluation, Exam, Resources
 
 <div class="signature">
     <p class="signature-course">ASP.NET MVC</p>
@@ -15,57 +15,54 @@
 # Table of Contents
 - What's Coming Next in the Academy?
 - The ASP.NET MVC Course Program
-- The Trainers Team
 - Exams and Evaluation
-  - The Practical Exam
 - Resources for the Course
 
 
 <!-- section start -->
 <!-- attr: { class:'slide-section', id:'coming-next' } -->
 # ASP.NET MVC
-## The Next Course in the Web Track of the Telerik Software Academy
+## The Next Course in Telerik Software Academy
 
 <!-- attr: { hasScriptWrapper:true, style:'font-size:0.9em' } -->
 # What's Coming Next?
 - `ASP.NET MVC` Course
-  - Continuation of Databases and Node.js
   - Creating Web applications with .NET
-- Lectures 5 times a week
-  - From 11:00 to 18:00
+- Lectures 2 times a week
+  - From 11:00 to...
 - The course evaluation?
   - Course project
-    - Teams of 2-3
-	- Defense: **TODO**
+    - Teams of 1
 
 <!-- section start -->
 <!-- attr: {class: 'slide-section', id: 'spa-program'} -->
-# ASP.NET MVC Course Program
-## What Will We Cover in the Course?
+<!-- # ASP.NET MVC Course Program
+## What Will We Cover in the Course? -->
 
-<!-- attr: { hasScriptWrapper:true, style:'font-size:0.5em' } -->
+<!-- attr: { hasScriptWrapper:true } -->
 # The Course Program
 
-- ASP.NET Overview
-  - CSHTML and **Razor**
+- ASP.NET MVC intro
+- ASP.NET MVC Essentials
+- AJAX in ASP.NET MVC
 - Working with Data
-- Creating AJAX
-- ASP.NET WebAPI
-- Filters, actions, configurations
-- IoC and DI
+- ASP.NET Web Security
+- Caching
+- Advanced ASP.NET MVC
+- Continuous Integration and Deployment
 - SignalR
+- KendoUI Wrappers
 
 <!-- section start -->
 <!-- attr: {id: 'evaluation', class: 'slide-section'} -->
-# Course Evaluation
+<!-- # Course Evaluation -->
 
 <!-- attr: { style:'font-size:0.9em' } -->
 # Course Evaluation
-- **Course project** – up to `65%`
-- **Homework** – up to `10%`
-- **Attendance in workshops** – up to `10%`
-- **Solving workshop tasks** - up to `10%`
-- **Reviewing workshop tasks** - up to `5%`
+- **Course project** – 85%
+- **Homework** – 5%
+  - **Homework evaluation** – 5%
+- **Attendance in class** – 5% (8 lectures)
 
 # Pass / Excellence / Fail Criteria
 -	Criteria for pass / pass with excellence / fail
@@ -94,6 +91,7 @@
 ## What We Need in Addition to this Course Content?
 
 
+<!-- attr: { style:'font-size:0.9em' } -->
 # Course Web Site & Forums
 -	Register for the [Telerik Academy Forums](http://telerikacademy.com/Forum/Category/55/asp-net-mvc)
 	-	Discuss the course exercises with your colleagues
@@ -105,7 +103,6 @@
 	-	Homework submissions / peer reviews
 	-	Presence cards with barcode
 	-	Reports about your results
-  - **TODO**
 -	[Course site](http://telerikacademy.com/Courses/Courses/Details/313)
 
 # Required Software
