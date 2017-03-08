@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.msbuild.MsBuildBuilder plugin="msbuild@1.27">
+      <msBuildName>msbuild</msBuildName>
+      <msBuildFile>C:\Program Files (x86)\Jenkins\workspace\build\LiveDemo-MVC\LiveDemo-MVC.sln</msBuildFile>
+      <cmdLineArgs>/p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=&quot;C:\Users\telerikacademy\Documents\livedemo-mvc\LiveDemo-MVC\LiveDemo-MVC\Properties\PublishProfiles\livedemo-mvc - Web Deploy.pubxml&quot; /p:Password=SKNH1EoSc1avirzsJNavD6BYq3c7kydpswnnA39JEZp7Kp9filoii11gdQew</cmdLineArgs>
+      <buildVariablesAsProperties>false</buildVariablesAsProperties>
+      <continueOnBuildFailure>false</continueOnBuildFailure>
+      <unstableIfWarnings>false</unstableIfWarnings>
+    </hudson.plugins.msbuild.MsBuildBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>
