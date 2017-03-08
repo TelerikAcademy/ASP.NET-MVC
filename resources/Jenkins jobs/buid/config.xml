@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.1.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/ViktorTsvetkov/livedemo-mvc</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>&quot;C:\Program Files (x86)\NuGet\Visual Studio 2015\nuget.exe&quot; restore &quot;C:\Program Files (x86)\Jenkins\workspace\build\LiveDemo-MVC\LiveDemo-MVC.sln&quot;</command>
+    </hudson.tasks.BatchFile>
+    <hudson.plugins.msbuild.MsBuildBuilder plugin="msbuild@1.27">
+      <msBuildName>msbuild</msBuildName>
+      <msBuildFile>C:\Program Files (x86)\Jenkins\workspace\build\LiveDemo-MVC\LiveDemo-MVC.sln</msBuildFile>
+      <cmdLineArgs>/p:Configuration=Release</cmdLineArgs>
+      <buildVariablesAsProperties>false</buildVariablesAsProperties>
+      <continueOnBuildFailure>false</continueOnBuildFailure>
+      <unstableIfWarnings>false</unstableIfWarnings>
+    </hudson.plugins.msbuild.MsBuildBuilder>
+    <hudson.tasks.BatchFile>
+      <command>&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mstest.exe&quot; /testcontainer:&quot;C:\Program Files (x86)\Jenkins\workspace\build\LiveDemo-MVC\LiveDemo-MVC.UnitTests\bin\Release\LiveDemo-MVC.UnitTests.dll&quot; /resultsfile:UnitTestsResults.trx</command>
+    </hudson.tasks.BatchFile>
+    <hudson.tasks.BatchFile>
+      <command>&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\mstest.exe&quot; /testcontainer:&quot;C:\Program Files (x86)\Jenkins\workspace\build\LiveDemo-MVC\LiveDemo-MVC.IntegrationTests\bin\Release\LiveDemo-MVC.IntegrationTests.dll&quot; /resultsfile:IntegrationTestsResults.trx</command>
+    </hudson.tasks.BatchFile>
+    <hudson.plugins.msbuild.MsBuildBuilder plugin="msbuild@1.27">
+      <msBuildName>msbuild</msBuildName>
+      <msBuildFile>C:\Program Files (x86)\Jenkins\workspace\build\LiveDemo-MVC\LiveDemo-MVC.sln</msBuildFile>
+      <cmdLineArgs>/p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=&quot;C:\Users\telerikacademy\Documents\livedemo-mvc\LiveDemo-MVC\LiveDemo-MVC\Properties\PublishProfiles\local.pubxml&quot;</cmdLineArgs>
+      <buildVariablesAsProperties>false</buildVariablesAsProperties>
+      <continueOnBuildFailure>false</continueOnBuildFailure>
+      <unstableIfWarnings>false</unstableIfWarnings>
+    </hudson.plugins.msbuild.MsBuildBuilder>
+  </builders>
+  <publishers>
+    <hudson.plugins.mstest.MSTestPublisher plugin="mstest@0.19">
+      <testResultsFile>**/*.trx</testResultsFile>
+      <buildTime>0</buildTime>
+      <failOnError>true</failOnError>
+      <keepLongStdio>true</keepLongStdio>
+    </hudson.plugins.mstest.MSTestPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>
