@@ -59,8 +59,9 @@
 
 <!-- attr: { style:'font-size:0.9em' } -->
 # Course Evaluation
-- **Course project** – 90%
-- **Attendance in class** – 10% 
+- **Course project** – 80%
+- **General questions** – 15% 
+- **Attendance in class** – 5% 
 
 # Pass / Excellence / Fail Criteria
 -	Criteria for pass / pass with excellence / fail
