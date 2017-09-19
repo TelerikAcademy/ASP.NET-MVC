@@ -59,10 +59,8 @@
 
 <!-- attr: { style:'font-size:0.9em' } -->
 # Course Evaluation
-- **Course project** – 85%
-- **Homework** – 5%
-  - **Homework evaluation** – 5%
-- **Attendance in class** – 5% (8 lectures)
+- **Course project** – 90%
+- **Attendance in class** – 10% 
 
 # Pass / Excellence / Fail Criteria
 -	Criteria for pass / pass with excellence / fail
@@ -74,16 +72,6 @@
 	-	Fail
 		-	Low results on the individual project
 		-	Low total results or low exam results
-
-# Homework Peer Reviews
--	Everyone will **get feedback** for their homework
--	Everyone will **give feedback** for few random homework submissions
-	-	Students submit homework **anonymously**
-		-	Please exclude your name from the submissions!
-	-	For each homework submitted
-		-	Students **evaluate 3 random homeworks**
-		-	From the same topic, after the deadline
-		-	Homework comments are `not obligatory`
 
 <!-- section start -->
 <!-- attr: { id:'resources', class:'slide-section' } -->
@@ -107,8 +95,8 @@
 
 # Required Software
 - Tools that you need:
-	- IDE: Visual Studio 2015
-	- Framework: .NET Framework 4.6
+	- IDE: Visual Studio 2017
+	- Framework: .NET Framework 4.7
 	- Web server: IIS Express (included in VS)
 	- Data: Microsoft SQL Sever (Express or LocalDB)
 - Visual Studio installer will install everything you need
