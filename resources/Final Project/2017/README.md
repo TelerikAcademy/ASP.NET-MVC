@@ -40,7 +40,7 @@ Your Web application should use the following technologies, frameworks and devel
 * Use **MS SQL Server** as database back-end
 	* Use **Entity Framework 6** to access your database
 	* Using **repositories and/or service layer** is a must
-* Use at least **2 areas** in your project (e.g. for administration)
+* Use at least **1 area** in your project (e.g. for administration)
 * Create **tables with data** with **server-side paging and sorting** for every model entity
 	* You can use Kendo UI grid, jqGrid, any other library or generate your own HTML tables
 * Create **beautiful and responsive UI**
@@ -56,16 +56,24 @@ Your Web application should use the following technologies, frameworks and devel
 * Create **unit tests** for your "business" functionality following the best practices for writing unit tests (**at least 80% code coverage**) - **~30% of the points for the project** (**IF YOU HAVE UNDER 50% CODE COVERAGE YOU WILL NOT PASS THE EXAM**)
 * Use **Dependency Inversion** principle and **Dependency Injection** technique following the best practices - **~20% of the points for the project**
 * Integrate your app with a **Continuous Integration server** (Jenkins, AppVeyor or other) - configure your unit tests to run on each commit to your master branch (**MANDATORY REQUIREMENT**)
-* Use GitHub and take advantage of the **branches** for writing your features.
 * **Documentation** of the project and project architecture (as `.md` file, including screenshots)
+
+### Mandatory Requirements
+
+- Implement at least 50% code coverage
+- Implement continuous integration
 
 ### Optional Requirements (bonus points)
 
 * Write integration tests and configure them to run as part of your CI build
-* Originality of the idea (uniqueness)
 * Using some king of machine learning (AI)
 * Using external devices (e.g. Raspberry Pi)
 * Host your application in Azure (or any other public hosting provider)
+
+### Good to have
+* Research and use project management system (GitHub Issues, Trello, etc.)
+* Research and use (simple) gitflow (master and development branches)
+* Reserach and write user stories and user journey maps
 
 ### Deliverables
 
