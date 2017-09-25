@@ -26,7 +26,6 @@ This part could hold for example the user's profiles management functionality, t
 ### Administration Part
 
 **System administrators** should have administrative access to the system and permissions to administer all major information objects in the system, e.g. to create/edit/delete users and other administrators, to edit/delete offers in a bid system, to edit/delete photos and album in a photo sharing system, to edit/delete posts in a blogging system, edit/delete products and categories in an e-commerce system, etc.
-
 ## General Requirements
 
 Your Web application should use the following technologies, frameworks and development techniques:
@@ -70,7 +69,7 @@ Your Web application should use the following technologies, frameworks and devel
 * Using external devices (e.g. Raspberry Pi)
 * Host your application in Azure (or any other public hosting provider)
 
-### Good to have
+### Good to have (does not give points)
 * Research and use project management system (GitHub Issues, Trello, etc.)
 * Research and use (simple) gitflow (master and development branches)
 * Reserach and write user stories and user journey maps
