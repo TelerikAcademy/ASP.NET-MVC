@@ -1,0 +1,8 @@
+﻿@using TelerikAcademy.ForumSystem.Web.Models.Home
+@model PostViewModel
+
+<div class="col-md-4">
+    <h2>@Model.Title</h2>
+    <p>@Model.Content</p>
+    <p>@Html.DisplayFor(x => Model.PostedOn) - @Model.AuthorEmail</p>
+</div>
