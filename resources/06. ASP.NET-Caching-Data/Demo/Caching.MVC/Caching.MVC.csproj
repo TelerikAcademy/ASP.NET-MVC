@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -188,6 +190,7 @@
     <Compile Include="Models\SetPasswordViewModel.cs" />
     <Compile Include="Models\VerifyCodeViewModel.cs" />
     <Compile Include="Models\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="OutputCacheLongLivedAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

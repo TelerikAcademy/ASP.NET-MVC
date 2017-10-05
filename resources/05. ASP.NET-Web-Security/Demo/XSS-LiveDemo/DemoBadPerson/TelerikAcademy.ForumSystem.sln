@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.ForumSystem.Web", "TelerikAcademy.ForumSystem.Web\TelerikAcademy.ForumSystem.Web.csproj", "{6856C21D-0966-4ED5-A4ED-5ECF6CA60E06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{8D4FCD1B-8F19-4069-B1D3-6227AFCC550C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.ForumSystem.Data", "TelerikAcademy.ForumSystem.Data\TelerikAcademy.ForumSystem.Data.csproj", "{2D1B95EB-01DF-4478-9F22-D8659D13E77B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.ForumSystem.Data.Model", "TelerikAcademy.ForumSystem.Data.Model\TelerikAcademy.ForumSystem.Data.Model.csproj", "{93C24150-B0CD-4EE4-A83C-CD765299275D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{39414B78-198F-4DBF-B683-45AE77D3299D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikAcademy.ForumSystem.Services", "TelerikAcademy.ForumSystem.Services\TelerikAcademy.ForumSystem.Services.csproj", "{FB051718-9592-4803-AB3D-7C975D93EBD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6856C21D-0966-4ED5-A4ED-5ECF6CA60E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6856C21D-0966-4ED5-A4ED-5ECF6CA60E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6856C21D-0966-4ED5-A4ED-5ECF6CA60E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6856C21D-0966-4ED5-A4ED-5ECF6CA60E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1B95EB-01DF-4478-9F22-D8659D13E77B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1B95EB-01DF-4478-9F22-D8659D13E77B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1B95EB-01DF-4478-9F22-D8659D13E77B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1B95EB-01DF-4478-9F22-D8659D13E77B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93C24150-B0CD-4EE4-A83C-CD765299275D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93C24150-B0CD-4EE4-A83C-CD765299275D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93C24150-B0CD-4EE4-A83C-CD765299275D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93C24150-B0CD-4EE4-A83C-CD765299275D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB051718-9592-4803-AB3D-7C975D93EBD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB051718-9592-4803-AB3D-7C975D93EBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB051718-9592-4803-AB3D-7C975D93EBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB051718-9592-4803-AB3D-7C975D93EBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2D1B95EB-01DF-4478-9F22-D8659D13E77B} = {8D4FCD1B-8F19-4069-B1D3-6227AFCC550C}
+		{93C24150-B0CD-4EE4-A83C-CD765299275D} = {8D4FCD1B-8F19-4069-B1D3-6227AFCC550C}
+		{FB051718-9592-4803-AB3D-7C975D93EBD3} = {39414B78-198F-4DBF-B683-45AE77D3299D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CFB0C426-EEE3-4673-9B8A-2EFBE4577B18}
+	EndGlobalSection
+EndGlobal

@@ -2,9 +2,5 @@
     ViewBag.Title = "MVC Caching Demo";
 }
 
-<div class="jumbotron">
-    <h1>@ViewBag.Title</h1>
-    <p class="lead">Id: @ViewBag.Id</p>
-    <p class="lead">Time: @ViewBag.Time</p>
-    <p class="lead">View number: @GlobalCounter.Next()</p>
-</div>
+@{Html.RenderAction("CachedDate");}
+

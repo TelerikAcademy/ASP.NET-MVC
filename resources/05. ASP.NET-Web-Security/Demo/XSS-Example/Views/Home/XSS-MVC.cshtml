@@ -1,9 +1,0 @@
-﻿@{
-    ViewBag.Title = "HTML Escaping and XSS in MVC (Razor) - Example";
-}
-
-<h1>HTML escaped text (default in Razor)</h1>
-@ViewBag.SomeInput
-
-<h1>HTML un-escaped text:</h1>
-@Html.Raw(ViewBag.SomeInput)
